@@ -13,12 +13,25 @@ struct ContentView: View {
     @Query private var items: [Item]
 
     var body: some View {
-        ZStack(content:{
+        ZStack {
+            GradientBackground(topColor: .blue, bottomColor: .black)
+            VStack(alignment: .center, content: {
+                Label("Ticket to Ride", systemImage: "")
+                    .font(.system(size: 35, weight: .bold, design: .default))
+                    .frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(.white)
+                Label("Destination extension", systemImage: "train.side.front.car")
+                    .font(.system(size: 20, weight: .medium, design: .default))
+                    .frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(.white)
+                    Spacer()
+                    CustomButton(text: "User 1", systemImage: "", function: addItem)
+                    CustomButton(text: "User 2", systemImage: "", function: addItem)
+                    CustomButton(text: "User 3", systemImage: "", function: addItem)
+            }).padding(25)
+            
 //            NavigationSplitView {
-//                LinearGradient(gradient: Gradient(colors:[.green, .blue]),
-//                               startPoint: .topLeading, endPoint: .bottomTrailing)
-//                .edgesIgnoringSafeArea(.all)
-//                
+                
 //                List {
 //                    ForEach(items) { item in
 //                        NavigationLink {
@@ -39,24 +52,21 @@ struct ContentView: View {
 //                        }
 //                    }
 //                }
+//                
 //            } detail: {
 //                Text("Select an item")
-//            }
-            
-            GradientBackground(topColor: .blue, bottomColor: .black)
-            
-            HStack(alignment: .bottom, spacing: 10, content: {
-                VStack(alignment: .trailing, content: {
-                    CustomButton(text: "User 1", systemImage: "plus", function: addItem)
-                    CustomButton(text: "User 2", systemImage: "plus", function: addItem)
-                    CustomButton(text: "User 3", systemImage: "plus", function: addItem)
-                    })
-            }).frame(alignment: .trailing)
-            
-        })
+//            }.foregroundColor(.blue)
+        }
     }
 
     private func addItem() {
+        withAnimation {
+            let newItem = Item(timestamp: Date())
+            modelContext.insert(newItem)
+        }
+    }
+    
+    private func goToUserPage(id: Int) {
         withAnimation {
             let newItem = Item(timestamp: Date())
             modelContext.insert(newItem)
@@ -93,6 +103,7 @@ struct CustomButton : View {
     var function : () -> Void
     var body: some View {
         Button(action: function) {
+            Image(systemName: "person.fill").padding(2)
             Label(text, systemImage: systemImage).foregroundColor(.blue)
         }
         .frame(width: 200,height: 30)
