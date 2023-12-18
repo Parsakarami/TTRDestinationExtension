@@ -94,21 +94,6 @@ struct ContentView: View {
         }
     }
     
-    struct CustomButton : View {
-        var text: String
-        var systemImage: String
-        var function : () -> Void
-        var body: some View {
-            Button(action: function) {
-                Label(text, systemImage: systemImage).foregroundColor(.blue)
-            }
-            .frame(width: 200,height: 30)
-            .padding(10)
-            .background(.white)
-            .cornerRadius(4.5)
-        }
-    }
-    
     struct PasswordView : View {
         var user: String
         var password: String
