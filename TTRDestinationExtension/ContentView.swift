@@ -94,16 +94,6 @@ struct ContentView: View {
         }
     }
     
-    struct GradientBackground: View {
-        var topColor: Color
-        var bottomColor: Color
-        var body: some View {
-            LinearGradient(gradient: Gradient(colors:[topColor,bottomColor]),
-                           startPoint: .topLeading, endPoint: .bottomTrailing)
-            .edgesIgnoringSafeArea(.all)
-        }
-    }
-    
     struct CustomButton : View {
         var text: String
         var systemImage: String
@@ -118,7 +108,6 @@ struct ContentView: View {
             .cornerRadius(4.5)
         }
     }
-    
     
     struct PasswordView : View {
         var user: String

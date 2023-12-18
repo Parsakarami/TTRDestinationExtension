@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42A6A1472B2FC6F30069A897 /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6A1462B2FC6F30069A897 /* GradientBackground.swift */; };
 		42D9EB8E2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9EB8D2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift */; };
 		42D9EB902B2E0BED00262A45 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9EB8F2B2E0BED00262A45 /* ContentView.swift */; };
 		42D9EB922B2E0BED00262A45 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9EB912B2E0BED00262A45 /* Item.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42A6A1462B2FC6F30069A897 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		42D9EB8A2B2E0BED00262A45 /* TTRDestinationExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTRDestinationExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D9EB8D2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTRDestinationExtensionApp.swift; sourceTree = "<group>"; };
 		42D9EB8F2B2E0BED00262A45 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 		42D9EB8C2B2E0BED00262A45 /* TTRDestinationExtension */ = {
 			isa = PBXGroup;
 			children = (
+				42A6A1462B2FC6F30069A897 /* GradientBackground.swift */,
 				42D9EB8D2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift */,
 				42D9EB8F2B2E0BED00262A45 /* ContentView.swift */,
 				42D9EB912B2E0BED00262A45 /* Item.swift */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D9EB902B2E0BED00262A45 /* ContentView.swift in Sources */,
+				42A6A1472B2FC6F30069A897 /* GradientBackground.swift in Sources */,
 				42D9EB922B2E0BED00262A45 /* Item.swift in Sources */,
 				42D9EB8E2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift in Sources */,
 			);
