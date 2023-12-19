@@ -37,10 +37,13 @@
 		4246C69C2B3113410036E8CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4246C69B2B3113410036E8CD /* GoogleService-Info.plist */; };
 		4246C6A42B3116210036E8CD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6A32B3116210036E8CD /* LoginView.swift */; };
 		4246C6A62B3116750036E8CD /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6A52B3116750036E8CD /* DestinationView.swift */; };
+		4246C6A82B3119F30036E8CD /* DestinationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6A72B3119F30036E8CD /* DestinationItemView.swift */; };
+		4246C6AA2B311A3D0036E8CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6A92B311A3D0036E8CD /* User.swift */; };
+		4246C6AC2B311A490036E8CD /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6AB2B311A490036E8CD /* Destination.swift */; };
+		4246C6AE2B311AA60036E8CD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6AD2B311AA60036E8CD /* MainView.swift */; };
 		42A6A1472B2FC6F30069A897 /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6A1462B2FC6F30069A897 /* GradientBackground.swift */; };
 		42A6A1492B2FC74B0069A897 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6A1482B2FC74B0069A897 /* CustomButton.swift */; };
 		42D9EB8E2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9EB8D2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift */; };
-		42D9EB902B2E0BED00262A45 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9EB8F2B2E0BED00262A45 /* ContentView.swift */; };
 		42D9EB922B2E0BED00262A45 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9EB912B2E0BED00262A45 /* Item.swift */; };
 		42D9EB942B2E0BED00262A45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D9EB932B2E0BED00262A45 /* Assets.xcassets */; };
 		42D9EB972B2E0BED00262A45 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D9EB962B2E0BED00262A45 /* Preview Assets.xcassets */; };
@@ -50,11 +53,14 @@
 		4246C69B2B3113410036E8CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4246C6A32B3116210036E8CD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4246C6A52B3116750036E8CD /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
+		4246C6A72B3119F30036E8CD /* DestinationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationItemView.swift; sourceTree = "<group>"; };
+		4246C6A92B311A3D0036E8CD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4246C6AB2B311A490036E8CD /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		4246C6AD2B311AA60036E8CD /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		42A6A1462B2FC6F30069A897 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		42A6A1482B2FC74B0069A897 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		42D9EB8A2B2E0BED00262A45 /* TTRDestinationExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTRDestinationExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D9EB8D2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTRDestinationExtensionApp.swift; sourceTree = "<group>"; };
-		42D9EB8F2B2E0BED00262A45 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42D9EB912B2E0BED00262A45 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		42D9EB932B2E0BED00262A45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42D9EB962B2E0BED00262A45 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -101,7 +107,7 @@
 		4246C69D2B31148B0036E8CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				42D9EB8F2B2E0BED00262A45 /* ContentView.swift */,
+				4246C6AD2B311AA60036E8CD /* MainView.swift */,
 				4246C6A32B3116210036E8CD /* LoginView.swift */,
 				4246C6A52B3116750036E8CD /* DestinationView.swift */,
 				4246C6A22B3114E90036E8CD /* Components */,
@@ -120,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				42D9EB912B2E0BED00262A45 /* Item.swift */,
+				4246C6A92B311A3D0036E8CD /* User.swift */,
+				4246C6AB2B311A490036E8CD /* Destination.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,6 +146,7 @@
 			children = (
 				42A6A1462B2FC6F30069A897 /* GradientBackground.swift */,
 				42A6A1482B2FC74B0069A897 /* CustomButton.swift */,
+				4246C6A72B3119F30036E8CD /* DestinationItemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -282,10 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4246C6A82B3119F30036E8CD /* DestinationItemView.swift in Sources */,
 				4246C6A42B3116210036E8CD /* LoginView.swift in Sources */,
+				4246C6AC2B311A490036E8CD /* Destination.swift in Sources */,
 				4246C6A62B3116750036E8CD /* DestinationView.swift in Sources */,
-				42D9EB902B2E0BED00262A45 /* ContentView.swift in Sources */,
 				42A6A1472B2FC6F30069A897 /* GradientBackground.swift in Sources */,
+				4246C6AA2B311A3D0036E8CD /* User.swift in Sources */,
+				4246C6AE2B311AA60036E8CD /* MainView.swift in Sources */,
 				42D9EB922B2E0BED00262A45 /* Item.swift in Sources */,
 				42D9EB8E2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift in Sources */,
 				42A6A1492B2FC74B0069A897 /* CustomButton.swift in Sources */,

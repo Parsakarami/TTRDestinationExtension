@@ -18,7 +18,7 @@ struct DestinationView : View {
                     .frame(alignment: .center)
                     .foregroundColor(.white)
                 
-                NavigationLink(destination: ContentView()
+                NavigationLink(destination: MainView()
                     .navigationBarTitle("", displayMode: .inline)
                     .navigationBarHidden(false))
                 { CustomButton(text: "Go Back", systemImage: "home", function: addCard) }
