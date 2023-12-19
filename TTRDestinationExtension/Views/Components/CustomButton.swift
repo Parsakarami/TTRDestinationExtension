@@ -10,14 +10,16 @@ import SwiftUI
 struct CustomButton : View {
     var text: String
     var systemImage: String
-    var function : () -> Void
+    var function : () -> Void = {}
+    var backColor: Color = .white
+    var foreColor: Color = .blue
     var body: some View {
         Button(action: function) {
-            Label(text, systemImage: systemImage).foregroundColor(.blue)
+            Label(text, systemImage: systemImage).foregroundColor(foreColor)
         }
         .frame(width: 200,height: 30)
         .padding(10)
-        .background(.white)
+        .background(backColor)
         .cornerRadius(4.5)
     }
 }

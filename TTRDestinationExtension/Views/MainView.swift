@@ -11,7 +11,7 @@ import SwiftData
 struct MainView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
-    
+    @Query private var users: [User]
     var body: some View {
         NavigationView {
             ZStack {
@@ -27,21 +27,25 @@ struct MainView: View {
                             .frame(alignment: .center)
                             .foregroundColor(.white)
                     }).frame(width: UIScreen.main.bounds.width)
-                    
                     Spacer()
-                    
-                    NavigationLink(destination: LoginView(user: "User1", password: "")
-                        .navigationBarTitle("", displayMode: .inline)
-                        .navigationBarHidden(true))
-                    { CustomButton(text: "User 1", systemImage: "", function: addItem) }
-                    NavigationLink(destination: LoginView(user: "User2", password: "")
-                        .navigationBarTitle("", displayMode: .inline)
-                        .navigationBarHidden(true))
-                    { CustomButton(text: "User 2", systemImage: "", function: addItem) }
-                    NavigationLink(destination: LoginView(user: "User3", password: "")
-                        .navigationBarTitle("", displayMode: .inline)
-                        .navigationBarHidden(true))
-                    { CustomButton(text: "User 3", systemImage: "", function: addItem) }
+                    VStack{
+                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                            CustomButton(text: "Add User", systemImage: "plus", function: addUser,backColor: .green, foreColor: .white)
+                                .aspectRatio(contentMode: .fill)
+                        })
+                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                            CustomButton(text: "Clear", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
+                        })
+                    }
+                    Spacer()
+                    VStack{
+                        ForEach(users) { user in
+                            NavigationLink(destination: LoginView(user: "\(user.name)", password: "")
+                                .navigationBarTitle("", displayMode: .inline)
+                                .navigationBarHidden(true))
+                            { CustomButton(text: "\(user.name)", systemImage: "", function: addItem) }
+                        }
+                    }.frame(width: UIScreen.main.bounds.width,height: 400)
                 }).padding(25)
             }
         }.navigationBarBackButtonHidden(true)
@@ -79,6 +83,28 @@ struct MainView: View {
         withAnimation {
             let newItem = Item(timestamp: Date())
             modelContext.insert(newItem)
+        }
+    }
+    
+    private func addUser() {
+        if(users.count <= 4)
+        {
+            withAnimation {
+                let newUser = User(name: "User\(users.count + 1)")
+                modelContext.insert(newUser)
+            }
+        }
+    }
+    
+    private func resetForm()
+    {
+        withAnimation {
+            do {
+                try modelContext.delete(model: User.self)
+            }
+            catch {
+                fatalError(error.localizedDescription)
+            }
         }
     }
     
