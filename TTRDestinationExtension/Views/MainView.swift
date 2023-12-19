@@ -12,35 +12,30 @@ struct MainView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
     @Query private var users: [User]
+
+    
     var body: some View {
         NavigationView {
             ZStack {
                 GradientBackground(topColor: .blue, bottomColor: .black)
                 VStack(alignment: .center, content: {
-                    VStack(content: {
-                        Label("Ticket to Ride", systemImage: "")
-                            .font(.system(size: 35, weight: .bold, design: .default))
-                            .frame(alignment: .center)
-                            .foregroundColor(.white)
-                        Label("Destination extension", systemImage: "train.side.front.car")
-                            .font(.system(size: 18, weight: .medium, design: .default))
-                            .frame(alignment: .center)
-                            .foregroundColor(.white)
-                    }).frame(width: UIScreen.main.bounds.width)
+                    Header()
                     Spacer()
                     VStack{
-                        Button(action: addUser, label: {
-                            CustomButton(text: "Add User", systemImage: "plus", function: addUser,backColor: .green, foreColor: .white)
-                                .aspectRatio(contentMode: .fill)
-                        })
+                        NavigationLink(destination: RegisterView(modelContext: modelContext)
+                            .navigationBarTitle("", displayMode: .inline)
+                            .navigationBarHidden(true))
+                        { CustomButton(text: "Add Player", systemImage: "plus", function: {}, backColor: .green, foreColor: .white) }
+
                         Button(action: resetForm, label: {
                             CustomButton(text: "Clear", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
                         })
                     }
                     Spacer()
+                    
                     VStack{
                         ForEach(users) { user in
-                            NavigationLink(destination: LoginView(user: "\(user.name)", password: "")
+                            NavigationLink(destination: LoginView()
                                 .navigationBarTitle("", displayMode: .inline)
                                 .navigationBarHidden(true))
                             { CustomButton(text: "\(user.name)", systemImage: "", function: addItem) }
@@ -90,7 +85,7 @@ struct MainView: View {
         if(users.count <= 4)
         {
             withAnimation {
-                let newUser = User(name: "User\(users.count + 1)")
+                let newUser = User(name: "User\(users.count + 1)",password: nil)
                 modelContext.insert(newUser)
             }
         }

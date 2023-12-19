@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct LoginView : View {
-    @State var user: String
-    @State var password: String
+    @StateObject var viewModel = LoginViewModel()
     var body: some View {
                 ZStack(content: {
                     GradientBackground(topColor: .blue, bottomColor: .black)
                     VStack(alignment: .center, spacing: 20, content: {
                         Spacer()
                         
-                        Text(user)
+                        Text(viewModel.user)
                             .font(.system(size: 35, weight: .bold, design: .default))
                             .frame(alignment: .center)
                             .foregroundColor(.white)
@@ -27,7 +26,7 @@ struct LoginView : View {
                             .frame(alignment: .trailing)
                             .aspectRatio(contentMode: .fit)
                         
-                        SecureField("Password", text: $password)
+                        SecureField("Password", text: $viewModel.password)
                             .frame(width: 200,height: 30)
                             .padding(10)
                             .background(.white)
@@ -36,11 +35,11 @@ struct LoginView : View {
                         NavigationLink(destination: DestinationView()
                             .navigationBarTitle("", displayMode: .inline)
                             .navigationBarHidden(true))
-                        { CustomButton(text: "Login", systemImage: "key", function: login) }
+                        { CustomButton(text: "Login", systemImage: "key", function: viewModel.login) }
                         NavigationLink(destination: MainView()
                             .navigationBarTitle("", displayMode: .inline)
                             .navigationBarHidden(true))
-                        { CustomButton(text: "Back", systemImage: "arrow.left", function: login) }
+                        { CustomButton(text: "Back", systemImage: "arrow.left", function: viewModel.login) }
                         
                         Spacer()
                     })
@@ -48,15 +47,10 @@ struct LoginView : View {
                     .padding(50)
                 })
     }
-    
-    private func login()
-    {
-        
-    }
 }
 
 
 
 #Preview {
-    LoginView(user:"",password:"")
+    LoginView()
 }
