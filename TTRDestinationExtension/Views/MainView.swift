@@ -29,11 +29,11 @@ struct MainView: View {
                     }).frame(width: UIScreen.main.bounds.width)
                     Spacer()
                     VStack{
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Button(action: addUser, label: {
                             CustomButton(text: "Add User", systemImage: "plus", function: addUser,backColor: .green, foreColor: .white)
                                 .aspectRatio(contentMode: .fill)
                         })
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Button(action: resetForm, label: {
                             CustomButton(text: "Clear", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
                         })
                     }
