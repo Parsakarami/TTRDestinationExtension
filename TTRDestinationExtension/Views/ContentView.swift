@@ -27,15 +27,15 @@ struct ContentView: View {
                         .foregroundColor(.white)
                     Spacer()
                     
-                    NavigationLink(destination: PasswordView(user: "User1", password: "1234")
+                    NavigationLink(destination: LoginView(user: "User1", password: "1234")
                         .navigationBarTitle("", displayMode: .inline)
                         .navigationBarHidden(true))
                     { CustomButton(text: "User 1", systemImage: "", function: addItem) }
-                    NavigationLink(destination: PasswordView(user: "User2", password: "1234")
+                    NavigationLink(destination: LoginView(user: "User2", password: "1234")
                         .navigationBarTitle("", displayMode: .inline)
                         .navigationBarHidden(true))
                     { CustomButton(text: "User 2", systemImage: "", function: addItem) }
-                    NavigationLink(destination: PasswordView(user: "User3", password: "1234")
+                    NavigationLink(destination: LoginView(user: "User3", password: "1234")
                         .navigationBarTitle("", displayMode: .inline)
                         .navigationBarHidden(true))
                     { CustomButton(text: "User 3", systemImage: "", function: addItem) }
@@ -91,70 +91,6 @@ struct ContentView: View {
             for index in offsets {
                 modelContext.delete(items[index])
             }
-        }
-    }
-    
-    struct PasswordView : View {
-        var user: String
-        var password: String
-        var body: some View {
-                    ZStack(content: {
-                        GradientBackground(topColor: .blue, bottomColor: .black)
-                        VStack(alignment: .center, spacing: 20, content: {
-                            Spacer()
-                            Text("Enter Password:")
-                                .foregroundColor(.white)
-                                .font(.system(size: 20))
-                                .frame(alignment: .trailing)
-                                .aspectRatio(contentMode: .fit)
-                            
-                            SecureField("Password", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("Apple")/*@END_MENU_TOKEN@*/)
-                                .frame(width: 200,height: 30)
-                                .padding(10)
-                                .background(.white)
-                                .cornerRadius(4.5)
-                            
-                            NavigationLink(destination: DestinationView()
-                                .navigationBarTitle("", displayMode: .inline)
-                                .navigationBarHidden(true))
-                            { CustomButton(text: "Login", systemImage: "key", function: login) }
-                            
-                            Spacer()
-                        })
-                        .frame(width: 400, height: 400, alignment: .centerLastTextBaseline)
-                        .padding(50)
-                    })
-        }
-        
-        private func login()
-        {
-            
-        }
-    }
-    
-    struct DestinationView : View {
-        var body: some View {
-            ZStack{
-                GradientBackground(topColor: .green, bottomColor: .blue)
-                VStack(alignment: .center, spacing: 20, content: {
-                    Spacer()
-                    Label("User 1", systemImage: "profile")
-                        .font(.system(size: 35, weight: .bold, design: .default))
-                        .frame(alignment: .center)
-                        .foregroundColor(.white)
-                    
-                    NavigationLink(destination: ContentView()
-                        .navigationBarTitle("", displayMode: .inline)
-                        .navigationBarHidden(false))
-                    { CustomButton(text: "Go Back", systemImage: "home", function: addCard) }
-                    Spacer()
-                })
-            }
-        }
-        
-        private func addCard()
-        {
-            
         }
     }
 }
