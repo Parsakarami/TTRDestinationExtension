@@ -21,7 +21,7 @@ struct DestinationView : View {
                 NavigationLink(destination: MainView()
                     .navigationBarTitle("", displayMode: .inline)
                     .navigationBarHidden(false))
-                { CustomButton(text: "Go Back", systemImage: "home", function: addCard) }
+                { CustomButton(text: "Home Page", systemImage: "house", function: addCard) }
                 Spacer()
             })
         }

@@ -17,25 +17,28 @@ struct MainView: View {
             ZStack {
                 GradientBackground(topColor: .blue, bottomColor: .black)
                 VStack(alignment: .center, content: {
-                    Label("Ticket to Ride", systemImage: "")
-                        .font(.system(size: 35, weight: .bold, design: .default))
-                        .frame(alignment: .center)
-                        .foregroundColor(.white)
-                    Label("Destination extension", systemImage: "train.side.front.car")
-                        .font(.system(size: 18, weight: .medium, design: .default))
-                        .frame(alignment: .center)
-                        .foregroundColor(.white)
+                    VStack(content: {
+                        Label("Ticket to Ride", systemImage: "")
+                            .font(.system(size: 35, weight: .bold, design: .default))
+                            .frame(alignment: .center)
+                            .foregroundColor(.white)
+                        Label("Destination extension", systemImage: "train.side.front.car")
+                            .font(.system(size: 18, weight: .medium, design: .default))
+                            .frame(alignment: .center)
+                            .foregroundColor(.white)
+                    }).frame(width: UIScreen.main.bounds.width)
+                    
                     Spacer()
                     
-                    NavigationLink(destination: LoginView(user: "User1", password: "1234")
+                    NavigationLink(destination: LoginView(user: "User1", password: "")
                         .navigationBarTitle("", displayMode: .inline)
                         .navigationBarHidden(true))
                     { CustomButton(text: "User 1", systemImage: "", function: addItem) }
-                    NavigationLink(destination: LoginView(user: "User2", password: "1234")
+                    NavigationLink(destination: LoginView(user: "User2", password: "")
                         .navigationBarTitle("", displayMode: .inline)
                         .navigationBarHidden(true))
                     { CustomButton(text: "User 2", systemImage: "", function: addItem) }
-                    NavigationLink(destination: LoginView(user: "User3", password: "1234")
+                    NavigationLink(destination: LoginView(user: "User3", password: "")
                         .navigationBarTitle("", displayMode: .inline)
                         .navigationBarHidden(true))
                     { CustomButton(text: "User 3", systemImage: "", function: addItem) }
