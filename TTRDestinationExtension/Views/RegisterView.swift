@@ -10,6 +10,7 @@ import SwiftData
 
 struct RegisterView: View {
     @State var viewModel : RegisterViewModel
+    @State var selectColor : String = "green"
     init(modelContext: ModelContext) {
         viewModel = RegisterViewModel(context: modelContext)
     }
@@ -41,23 +42,48 @@ struct RegisterView: View {
                             .cornerRadius(4.5)
                             .keyboardType(.numberPad)
                         
-                        HStack{
-                            Button(action: setGreenColor, label: {
-                                PlayerColorButton(isMatch: viewModel.color == "green", bgColor: .green)
-                            })
-                            Button(action: setBlackColor, label: {
-                                PlayerColorButton(isMatch: viewModel.color == "black", bgColor: .black)
-                            })
-                            Button(action: setYellowColor, label: {
-                                PlayerColorButton(isMatch: viewModel.color == "yellow", bgColor: .yellow)
-                            })
-                            Button(action: setBlueColor, label: {
-                                PlayerColorButton(isMatch: viewModel.color == "blue", bgColor: .blue)
-                            })
-                            Button(action: setRedColor, label: {
-                                PlayerColorButton(isMatch: viewModel.color == "red", bgColor: .red)
-                            })
+                        VStack{
+                            Label("Choose your color", systemImage: "")
+                            .font(.system(size: 18, weight: .medium, design: .default))
+                            .frame(alignment: .leading)
+                            .foregroundColor(.white)
+                            .padding(10)
+                            
+                            HStack{
+                                Button(action: {
+                                    selectColor = "green"
+                                    viewModel.setColor(color: selectColor)
+                                }, label: {
+                                    PlayerColorButton(isMatch: selectColor == "green", bgColor: .green)
+                                })
+                                Button(action: {
+                                    selectColor = "black"
+                                    viewModel.setColor(color: selectColor)
+                                }, label: {
+                                    PlayerColorButton(isMatch: selectColor == "black", bgColor: .black)
+                                })
+                                Button(action: {
+                                    selectColor = "yellow"
+                                    viewModel.setColor(color: selectColor)
+                                }, label: {
+                                    PlayerColorButton(isMatch: selectColor == "yellow", bgColor: .yellow)
+                                })
+                                Button(action: {
+                                    selectColor = "blue"
+                                    viewModel.setColor(color: selectColor)
+                                }, label: {
+                                    PlayerColorButton(isMatch: selectColor == "blue", bgColor: .blue)
+                                })
+                                Button(action: {
+                                    selectColor = "red"
+                                    viewModel.setColor(color: selectColor)
+                                }, label: {
+                                    PlayerColorButton(isMatch: selectColor == "red", bgColor: .red)
+                                })
+                            }
                         }
+                        
+                        
                         
                         if viewModel.isAttempted {
                             Label(viewModel.message,
@@ -71,7 +97,7 @@ struct RegisterView: View {
                         Spacer()
                         
                         Button(action: viewModel.register,
-                               label: { CustomButton(text: "Register",
+                               label: { CustomButton(text: "Add Player",
                                          systemImage: "",
                                          function: viewModel.register,
                                          backColor: viewModel.isSuccessful ? .gray : .green,
@@ -89,20 +115,5 @@ struct RegisterView: View {
             })
         }.navigationBarBackButtonHidden(true)
     }
-    
-    private func setGreenColor(){
-        viewModel.setColor(color: "green")
-    }
-    private func setBlackColor(){
-        viewModel.setColor(color: "black")
-    }
-    private func setYellowColor(){
-        viewModel.setColor(color: "yellow")
-    }
-    private func setBlueColor(){
-        viewModel.setColor(color: "blue")
-    }
-    private func setRedColor(){
-        viewModel.setColor(color: "red")
-    }
 }
+

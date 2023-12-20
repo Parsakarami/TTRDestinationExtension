@@ -13,7 +13,6 @@ struct MainView: View {
     @Query private var items: [Item]
     @Query private var users: [User]
 
-    
     var body: some View {
         NavigationView {
             ZStack {
@@ -25,7 +24,7 @@ struct MainView: View {
                         NavigationLink(destination: RegisterView(modelContext: modelContext)
                             .navigationBarTitle("", displayMode: .inline)
                             .navigationBarHidden(true))
-                        { CustomButton(text: "Add Player", systemImage: "plus", function: {}, backColor: .green, foreColor: .white) }
+                        { CustomButton(text: "Add Player", systemImage: "plus", function: {}, backColor: .white, foreColor: .blue) }
 
                         Button(action: resetForm, label: {
                             CustomButton(text: "Clear", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
@@ -37,8 +36,13 @@ struct MainView: View {
                         ForEach(users) { user in
                             NavigationLink(destination: LoginView()
                                 .navigationBarTitle("", displayMode: .inline)
-                                .navigationBarHidden(true))
-                            { CustomButton(text: "\(user.name)", systemImage: "", function: addItem) }
+                                .navigationBarHidden(true)) {
+                                    CustomButton(text: "\(user.name)",
+                                                 systemImage: "",
+                                                 function: addItem,
+                                                 backColor: Color(byName: user.color) ?? .white,
+                                                 foreColor: .white)
+                                }
                         }
                     }.frame(width: UIScreen.main.bounds.width,height: 400)
                 }).padding(25)
@@ -119,7 +123,29 @@ struct MainView: View {
     }
 }
 
+extension Color {
+    
+    init?(byName: String) {
+        switch byName {
+        case "clear":       self = .clear
+        case "black":       self = .black
+        case "white":       self = .white
+        case "gray":        self = .gray
+        case "red":         self = .red
+        case "green":       self = .green
+        case "blue":        self = .blue
+        case "orange":      self = .orange
+        case "yellow":      self = .yellow
+        case "pink":        self = .pink
+        case "purple":      self = .purple
+        case "primary":     self = .primary
+        case "secondary":   self = .secondary
+        default:            return nil
+        }
+    }
+}
+
 #Preview {
     MainView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: [Item.self, User.self], inMemory: true)
 }
