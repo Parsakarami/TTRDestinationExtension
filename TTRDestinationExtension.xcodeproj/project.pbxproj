@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421ADB312B32AEB800BB8322 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ADB302B32AEB800BB8322 /* ColorExtension.swift */; };
 		4246C6662B3112F00036E8CD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4246C6652B3112F00036E8CD /* FirebaseAnalytics */; };
 		4246C6682B3112F00036E8CD /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 4246C6672B3112F00036E8CD /* FirebaseAnalyticsOnDeviceConversion */; };
 		4246C66A2B3112F00036E8CD /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4246C6692B3112F00036E8CD /* FirebaseAnalyticsSwift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		421ADB302B32AEB800BB8322 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		4246C69B2B3113410036E8CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4246C6A32B3116210036E8CD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4246C6A52B3116750036E8CD /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		421ADB2F2B32AE7300BB8322 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				421ADB302B32AEB800BB8322 /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4246C69D2B31148B0036E8CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +198,7 @@
 		42D9EB8C2B2E0BED00262A45 /* TTRDestinationExtension */ = {
 			isa = PBXGroup;
 			children = (
+				421ADB2F2B32AE7300BB8322 /* Extensions */,
 				4246C6A12B3114DA0036E8CD /* Other */,
 				4246C69F2B3114A30036E8CD /* Models */,
 				4246C69E2B3114990036E8CD /* ViewModels */,
@@ -315,6 +326,7 @@
 				4246C6AC2B311A490036E8CD /* Destination.swift in Sources */,
 				4246C6A62B3116750036E8CD /* DestinationView.swift in Sources */,
 				42A6A1472B2FC6F30069A897 /* GradientBackground.swift in Sources */,
+				421ADB312B32AEB800BB8322 /* ColorExtension.swift in Sources */,
 				4246C6AA2B311A3D0036E8CD /* User.swift in Sources */,
 				4246C6AE2B311AA60036E8CD /* MainView.swift in Sources */,
 				42D9EB922B2E0BED00262A45 /* Item.swift in Sources */,
