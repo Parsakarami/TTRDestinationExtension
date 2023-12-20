@@ -37,7 +37,7 @@ struct MainView: View {
                     
                     VStack{
                         ForEach(users) { user in
-                            NavigationLink(destination: LoginView()
+                            NavigationLink(destination: LoginView(player: user)
                                 .navigationBarTitle("", displayMode: .inline)
                                 .navigationBarHidden(true)) {
                                     CustomButton(text: "\(user.name)",

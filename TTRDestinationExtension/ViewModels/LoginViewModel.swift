@@ -6,22 +6,17 @@
 //
 
 import Foundation
-
+import Combine
 class LoginViewModel : ObservableObject {
     @Published var user : String = ""
     @Published var password : String = ""
+    @Published var isAuthorized : Bool = false
     
-    init() {}
-    
-    func setPassword(username: String, password: String)
-    {
-        self.user = username
-        self.password = password
+    func login(correctPassword: String){
+        isAuthorized = correctPassword == password
     }
     
-    func login(){
+    func doNothing(){
         
     }
 }
-
-
