@@ -13,6 +13,7 @@ struct MainView: View {
     @Query private var items: [Item]
     @Query private var users: [User]
 
+    @State private var isShowingConfirmation: Bool = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -25,10 +26,12 @@ struct MainView: View {
                             .navigationBarTitle("", displayMode: .inline)
                             .navigationBarHidden(true))
                         { CustomButton(text: "Add Player", systemImage: "plus", function: {}, backColor: .white, foreColor: .blue) }
-
-                        Button(action: resetForm, label: {
+                        Button(action: {isShowingConfirmation = true}
+                               , label: {
                             CustomButton(text: "Clear", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
-                        })
+                        }).alert("Are you sure?", isPresented: $isShowingConfirmation) {
+                            Button("Delete",role:.destructive) {resetForm()}
+                        }
                     }
                     Spacer()
                     
