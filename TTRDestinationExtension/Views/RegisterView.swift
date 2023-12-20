@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct RegisterView: View {
-    @State private var viewModel : RegisterViewModel
+    @State var viewModel : RegisterViewModel
     init(modelContext: ModelContext) {
         viewModel = RegisterViewModel(context: modelContext)
     }
@@ -41,21 +41,38 @@ struct RegisterView: View {
                             .cornerRadius(4.5)
                             .keyboardType(.numberPad)
                         
-                        if(viewModel.isAttempted)
-                        {
-                            Label(viewModel.message, systemImage: viewModel.isSuccessful ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
-                                .flipsForRightToLeftLayoutDirection(true)
-                                .font(.system(size: 18, weight: .medium, design: .default))
-                                .frame(alignment: .center)
-                                .foregroundColor(viewModel.isSuccessful ? .green : .red)
-                                .padding()
+                        HStack{
+                            Button(action: setGreenColor, label: {
+                                PlayerColorButton(isMatch: viewModel.color == "green", bgColor: .green)
+                            })
+                            Button(action: setBlackColor, label: {
+                                PlayerColorButton(isMatch: viewModel.color == "black", bgColor: .black)
+                            })
+                            Button(action: setYellowColor, label: {
+                                PlayerColorButton(isMatch: viewModel.color == "yellow", bgColor: .yellow)
+                            })
+                            Button(action: setBlueColor, label: {
+                                PlayerColorButton(isMatch: viewModel.color == "blue", bgColor: .blue)
+                            })
+                            Button(action: setRedColor, label: {
+                                PlayerColorButton(isMatch: viewModel.color == "red", bgColor: .red)
+                            })
+                        }
+                        
+                        if viewModel.isAttempted {
+                            Label(viewModel.message,
+                            systemImage: viewModel.isSuccessful ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
+                            .font(.system(size: 18, weight: .medium, design: .default))
+                            .frame(alignment: .center)
+                            .foregroundColor(viewModel.isSuccessful ? .green : .yellow)
+                            .padding()
                         }
                         
                         Spacer()
                         
                         Button(action: viewModel.register,
                                label: { CustomButton(text: "Register",
-                                         systemImage: "plus",
+                                         systemImage: "",
                                          function: viewModel.register,
                                          backColor: viewModel.isSuccessful ? .gray : .green,
                                          foreColor: .white) })
@@ -64,7 +81,7 @@ struct RegisterView: View {
                         NavigationLink(destination: MainView()
                             .navigationBarTitle("", displayMode: .inline)
                             .navigationBarHidden(true))
-                        { CustomButton(text: "Back", systemImage: "arrow.left", function: {}) }
+                        { CustomButton(text: "Back", systemImage: "", function: {}) }
                     }
                     .frame(width: 400, height: 400, alignment: .centerLastTextBaseline)
                     .padding(50)
@@ -73,4 +90,19 @@ struct RegisterView: View {
         }.navigationBarBackButtonHidden(true)
     }
     
+    private func setGreenColor(){
+        viewModel.setColor(color: "green")
+    }
+    private func setBlackColor(){
+        viewModel.setColor(color: "black")
+    }
+    private func setYellowColor(){
+        viewModel.setColor(color: "yellow")
+    }
+    private func setBlueColor(){
+        viewModel.setColor(color: "blue")
+    }
+    private func setRedColor(){
+        viewModel.setColor(color: "red")
+    }
 }

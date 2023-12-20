@@ -85,7 +85,7 @@ struct MainView: View {
         if(users.count <= 4)
         {
             withAnimation {
-                let newUser = User(name: "User\(users.count + 1)",password: nil)
+                let newUser = User(name: "User\(users.count + 1)",password: nil, color: nil)
                 modelContext.insert(newUser)
             }
         }

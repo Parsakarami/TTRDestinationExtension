@@ -3,4 +3,134 @@
    uuid = "FF27E499-DC09-4201-88AA-A4769EB34BD5"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8405954-B8F2-4FB3-AC22-509B395F46B4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "validate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6160270-F02F-4F52-9F4F-0F05547991DA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "register()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A6160270-F02F-4F52-9F4F-0F05547991DA - c698222b023f9fd8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TTRDestinationExtension.RegisterViewModel.register() -&gt; ()"
+                  moduleName = "TTRDestinationExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parsa/Documents/My%20Repos/iOS%20Apps/TTRDestinationExtension/TTRDestinationExtension/TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "A6160270-F02F-4F52-9F4F-0F05547991DA - c698222b023fa01e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TTRDestinationExtension.RegisterViewModel.register() -&gt; ()"
+                  moduleName = "TTRDestinationExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parsa/Documents/My%20Repos/iOS%20Apps/TTRDestinationExtension/TTRDestinationExtension/TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D2E7C8E0-B4AA-4F37-8B8F-CCB9E04C92F8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "register()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D2E7C8E0-B4AA-4F37-8B8F-CCB9E04C92F8 - c698222b023fa0e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TTRDestinationExtension.RegisterViewModel.register() -&gt; ()"
+                  moduleName = "TTRDestinationExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parsa/Documents/My%20Repos/iOS%20Apps/TTRDestinationExtension/TTRDestinationExtension/TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  uuid = "D2E7C8E0-B4AA-4F37-8B8F-CCB9E04C92F8 - c698222b023fa126"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TTRDestinationExtension.RegisterViewModel.register() -&gt; ()"
+                  moduleName = "TTRDestinationExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parsa/Documents/My%20Repos/iOS%20Apps/TTRDestinationExtension/TTRDestinationExtension/TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "412">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFBE65CA-1CCA-4AA9-B5D1-0BFA17332AE2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTRDestinationExtension/Views/RegisterView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "setBlackColor()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

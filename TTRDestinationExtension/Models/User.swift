@@ -11,13 +11,15 @@ import SwiftData
 @Model
 final class User {
     var name: String
+    var color: String
     var password: String
     var totalPoints:Int = 0
     var destinationTickets: [Destination] = []
     
-    init(name: String, password: String?) {
+    init(name: String, password: String?, color: String?) {
         self.name = name
         self.password = password ?? "1234"
+        self.color = color ?? "green"
     }
     
     func addDestination(destination: Destination){

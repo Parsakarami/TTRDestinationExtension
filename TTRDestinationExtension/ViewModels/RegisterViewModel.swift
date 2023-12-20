@@ -11,32 +11,55 @@ import SwiftData
 class RegisterViewModel : ObservableObject{
     @Published var username : String = ""
     @Published var password : String = ""
+    @Published var color : String = "green"
+    
     @Published var message : String = ""
     @Published var isAttempted : Bool = false
     @Published var isSuccessful : Bool = false
     
     private var dbContext: ModelContext
     private var users = [User]()
+    
     init(context: ModelContext) {
         self.dbContext = context
         fetchData()
     }
     
+    func setColor(color: String){
+        self.color = color
+    }
+    
     func register() {
         isAttempted = true
-        
-        //Validation
-        if(users.count <= 4)
-        {
-            let newUser = User(name: username,password: password)
+        isSuccessful = validate()
+        if isSuccessful {
+            let newUser = User(name: username,password: password, color: color)
             dbContext.insert(newUser)
-            isSuccessful = true
             message = "Added!"
         }
-        else
-        {
-            message = "Hit the maximum player!"
+        else{
+            message = "Failed"
         }
+    }
+    
+    func validate() -> Bool {
+        
+        guard !username.trimmingCharacters(in: .whitespaces).isEmpty else{
+            message = "The username is required."
+            return false
+        }
+        
+        guard !password.trimmingCharacters(in: .whitespaces).isEmpty else{
+            message = "The password is required."
+            return false
+        }
+        
+        guard users.count <= 4 else {
+            message = "You hit the maximum player!"
+            return false
+        }
+        
+        return true
     }
     
     private func fetchData(){
