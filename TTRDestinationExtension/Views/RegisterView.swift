@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct RegisterView: View {
-    @State var viewModel : RegisterViewModel
+    @StateObject var viewModel : RegisterViewModel
     @State var selectColor : String = "green"
     init(modelContext: ModelContext) {
-        viewModel = RegisterViewModel(context: modelContext)
+        _viewModel = StateObject(wrappedValue: RegisterViewModel(context: modelContext))
     }
     
     var body: some View {

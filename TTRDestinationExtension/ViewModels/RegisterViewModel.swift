@@ -37,20 +37,17 @@ class RegisterViewModel : ObservableObject{
             dbContext.insert(newUser)
             message = "Added!"
         }
-        else{
-            message = "Failed"
-        }
     }
     
     func validate() -> Bool {
         
         guard !username.trimmingCharacters(in: .whitespaces).isEmpty else{
-            message = "The username is required."
+            message = "Username is required."
             return false
         }
         
         guard !password.trimmingCharacters(in: .whitespaces).isEmpty else{
-            message = "The password is required."
+            message = "Password is required."
             return false
         }
         
