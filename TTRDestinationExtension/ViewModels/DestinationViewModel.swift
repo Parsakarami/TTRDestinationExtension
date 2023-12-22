@@ -26,9 +26,9 @@ class DestinationViewModel : ObservableObject{
     }
     
     private func seedDestination(){
-        self.threeDestinations.append(Destination(point: 21, origin: "New York", destination: "Los Angles"))
-        self.threeDestinations.append(Destination(point: 17, origin: "San Fransisco", destination: "Atlanta"))
-        self.threeDestinations.append(Destination(point: 12, origin: "Torotno", destination: "Miami"))
+        self.threeDestinations.append(Destination(point: 21, origin: "New York", destination: "Los Angles",uuid: nil))
+        self.threeDestinations.append(Destination(point: 17, origin: "San Fransisco", destination: "Atlanta",uuid: nil))
+        self.threeDestinations.append(Destination(point: 12, origin: "Torotno", destination: "Miami",uuid: nil))
     }
     
     func selectDestination(index: Int)

@@ -26,8 +26,8 @@ struct DestinationView : View {
                         .padding(.leading, 10)
                     Spacer()
                     VStack(content: {
-                        Label("Total Points", systemImage: "")
-                            .font(.system(size: 15, weight: .light, design: .default))
+                        Label("Points", systemImage: "")
+                            .font(.system(size: 15, weight: .regular, design: .default))
                             .frame(width: 100,height: 25, alignment: .center)
                             .padding(.top,15)
                         Label(String(viewModel.player.totalPoints), systemImage: "profile")
@@ -36,7 +36,6 @@ struct DestinationView : View {
                             .offset(x:0,y: -15)
                     })
                     .frame(width: 100,height: 80, alignment: .center)
-                    .padding(.trailing, 10)
                 })
                 .foregroundColor(.white)
                 .frame(width: 320, height: 50, alignment: .leading)

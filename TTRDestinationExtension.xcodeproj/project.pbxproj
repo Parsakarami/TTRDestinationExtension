@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420040582B36378F00F590D1 /* JsonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420040572B36378F00F590D1 /* JsonExtension.swift */; };
+		4200405A2B363C6B00F590D1 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420040592B363C6B00F590D1 /* Ticket.swift */; };
 		42147B2C2B3517DB0003FA35 /* DestinationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42147B2B2B3517DB0003FA35 /* DestinationCard.swift */; };
 		421ADB312B32AEB800BB8322 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ADB302B32AEB800BB8322 /* ColorExtension.swift */; };
 		422080C52B35DF38006B90BE /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422080C42B35DF38006B90BE /* DestinationViewModel.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		420040572B36378F00F590D1 /* JsonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonExtension.swift; sourceTree = "<group>"; };
+		420040592B363C6B00F590D1 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		42147B2B2B3517DB0003FA35 /* DestinationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCard.swift; sourceTree = "<group>"; };
 		421ADB302B32AEB800BB8322 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		422080C42B35DF38006B90BE /* DestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewModel.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				421ADB302B32AEB800BB8322 /* ColorExtension.swift */,
+				420040572B36378F00F590D1 /* JsonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				42D9EB912B2E0BED00262A45 /* Item.swift */,
 				4246C6A92B311A3D0036E8CD /* User.swift */,
 				4246C6AB2B311A490036E8CD /* Destination.swift */,
+				420040592B363C6B00F590D1 /* Ticket.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,11 +345,13 @@
 				42D9EB922B2E0BED00262A45 /* Item.swift in Sources */,
 				427325032B31FDA000068F53 /* RegisterViewModel.swift in Sources */,
 				4259E83D2B3268D3003292F6 /* PlayerColorButton.swift in Sources */,
+				420040582B36378F00F590D1 /* JsonExtension.swift in Sources */,
 				427325052B31FFF400068F53 /* Header.swift in Sources */,
 				4246C6B22B311E190036E8CD /* LoginViewModel.swift in Sources */,
 				422080C52B35DF38006B90BE /* DestinationViewModel.swift in Sources */,
 				42D9EB8E2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift in Sources */,
 				42A6A1492B2FC74B0069A897 /* CustomButton.swift in Sources */,
+				4200405A2B363C6B00F590D1 /* Ticket.swift in Sources */,
 				4246C6B02B311E070036E8CD /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
