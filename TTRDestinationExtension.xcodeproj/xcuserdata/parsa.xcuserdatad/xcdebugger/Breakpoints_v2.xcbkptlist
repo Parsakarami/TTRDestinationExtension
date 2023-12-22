@@ -14,8 +14,8 @@
             filePath = "TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "validate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,54 +71,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D2E7C8E0-B4AA-4F37-8B8F-CCB9E04C92F8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "register()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D2E7C8E0-B4AA-4F37-8B8F-CCB9E04C92F8 - c698222b023fa0e0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TTRDestinationExtension.RegisterViewModel.register() -&gt; ()"
-                  moduleName = "TTRDestinationExtension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/parsa/Documents/My%20Repos/iOS%20Apps/TTRDestinationExtension/TTRDestinationExtension/TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "380">
-               </Location>
-               <Location
-                  uuid = "D2E7C8E0-B4AA-4F37-8B8F-CCB9E04C92F8 - c698222b023fa126"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TTRDestinationExtension.RegisterViewModel.register() -&gt; ()"
-                  moduleName = "TTRDestinationExtension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/parsa/Documents/My%20Repos/iOS%20Apps/TTRDestinationExtension/TTRDestinationExtension/TTRDestinationExtension/ViewModels/RegisterViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "412">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "40757059-0466-4A06-9DCB-24D997E51CAD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -130,6 +82,54 @@
             endingLineNumber = "1"
             landmarkName = "password"
             landmarkType = "37">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "29384AC5-E77F-4C57-BAD7-6846F97F866A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTRDestinationExtension/ViewModels/DestinationViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "addSelectedDestination()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "29384AC5-E77F-4C57-BAD7-6846F97F866A - e230f0342808df0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TTRDestinationExtension.DestinationViewModel.addDestination() -&gt; ()"
+                  moduleName = "TTRDestinationExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parsa/Documents/My%20Repos/iOS%20Apps/TTRDestinationExtension/TTRDestinationExtension/TTRDestinationExtension/ViewModels/DestinationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "29384AC5-E77F-4C57-BAD7-6846F97F866A - 86d8cc2d2dd70f08"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TTRDestinationExtension.DestinationViewModel.addSelectedDestination() -&gt; ()"
+                  moduleName = "TTRDestinationExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/parsa/Documents/My%20Repos/iOS%20Apps/TTRDestinationExtension/TTRDestinationExtension/TTRDestinationExtension/ViewModels/DestinationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView : View {
+    @Environment(\.modelContext) private var dbContext
     @State var player : User
     @StateObject var viewModel = LoginViewModel()
     var body: some View {
@@ -38,15 +39,16 @@ struct LoginView : View {
                             }
                         
                         if (viewModel.isAuthorized) {
-                            NavigationLink(destination: DestinationView(player: player)){
+                            NavigationLink(destination: 
+                                            DestinationView(modelContext: dbContext, player: player)){
                                     CustomButton(text: "Login",
                                            systemImage: "",
                                            function: viewModel.doNothing,
                                            backColor: .green,
                                            foreColor: .white
                                     )}
-                            .navigationBarTitle("", displayMode: .inline)
-                            .navigationBarHidden(true)
+                                    .navigationBarBackButtonHidden(true)
+                                    .navigationBarHidden(true)
                         } else {
                             CustomButton(text: "Not Authorized",
                                    systemImage: "lock.fill",
@@ -58,9 +60,10 @@ struct LoginView : View {
                         
                         
                         NavigationLink(destination: MainView()
-                            .navigationBarTitle("", displayMode: .inline)
-                            .navigationBarHidden(true)){
-                                CustomButton(text: "Back", systemImage: "arrow.left", function: viewModel.doNothing)
+                            .navigationBarBackButtonHidden(true)
+                            .navigationBarHidden(true))
+                            {
+                                CustomButton(text: "Back", systemImage: "arrow.left", function: {})
                             }
                         
                         Spacer()

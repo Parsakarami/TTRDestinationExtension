@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		42147B2C2B3517DB0003FA35 /* DestinationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42147B2B2B3517DB0003FA35 /* DestinationCard.swift */; };
 		421ADB312B32AEB800BB8322 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ADB302B32AEB800BB8322 /* ColorExtension.swift */; };
+		422080C52B35DF38006B90BE /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422080C42B35DF38006B90BE /* DestinationViewModel.swift */; };
 		4246C6662B3112F00036E8CD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4246C6652B3112F00036E8CD /* FirebaseAnalytics */; };
 		4246C6682B3112F00036E8CD /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 4246C6672B3112F00036E8CD /* FirebaseAnalyticsOnDeviceConversion */; };
 		4246C66A2B3112F00036E8CD /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4246C6692B3112F00036E8CD /* FirebaseAnalyticsSwift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		42147B2B2B3517DB0003FA35 /* DestinationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCard.swift; sourceTree = "<group>"; };
 		421ADB302B32AEB800BB8322 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		422080C42B35DF38006B90BE /* DestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewModel.swift; sourceTree = "<group>"; };
 		4246C69B2B3113410036E8CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4246C6A32B3116210036E8CD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4246C6A52B3116750036E8CD /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				4246C6AF2B311E070036E8CD /* MainViewModel.swift */,
 				4246C6B12B311E190036E8CD /* LoginViewModel.swift */,
 				427325022B31FDA000068F53 /* RegisterViewModel.swift */,
+				422080C42B35DF38006B90BE /* DestinationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				4259E83D2B3268D3003292F6 /* PlayerColorButton.swift in Sources */,
 				427325052B31FFF400068F53 /* Header.swift in Sources */,
 				4246C6B22B311E190036E8CD /* LoginViewModel.swift in Sources */,
+				422080C52B35DF38006B90BE /* DestinationViewModel.swift in Sources */,
 				42D9EB8E2B2E0BED00262A45 /* TTRDestinationExtensionApp.swift in Sources */,
 				42A6A1492B2FC74B0069A897 /* CustomButton.swift in Sources */,
 				4246C6B02B311E070036E8CD /* MainViewModel.swift in Sources */,
