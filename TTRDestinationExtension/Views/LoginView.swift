@@ -38,13 +38,15 @@ struct LoginView : View {
                             }
                         
                         if (viewModel.isAuthorized) {
-                            NavigationLink(destination: DestinationView()){
+                            NavigationLink(destination: DestinationView(player: player)){
                                     CustomButton(text: "Login",
                                            systemImage: "",
                                            function: viewModel.doNothing,
                                            backColor: .green,
                                            foreColor: .white
                                     )}
+                            .navigationBarTitle("", displayMode: .inline)
+                            .navigationBarHidden(true)
                         } else {
                             CustomButton(text: "Not Authorized",
                                    systemImage: "lock.fill",

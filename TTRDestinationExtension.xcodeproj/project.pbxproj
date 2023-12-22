@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42147B2C2B3517DB0003FA35 /* DestinationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42147B2B2B3517DB0003FA35 /* DestinationCard.swift */; };
 		421ADB312B32AEB800BB8322 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421ADB302B32AEB800BB8322 /* ColorExtension.swift */; };
 		4246C6662B3112F00036E8CD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4246C6652B3112F00036E8CD /* FirebaseAnalytics */; };
 		4246C6682B3112F00036E8CD /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 4246C6672B3112F00036E8CD /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42147B2B2B3517DB0003FA35 /* DestinationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCard.swift; sourceTree = "<group>"; };
 		421ADB302B32AEB800BB8322 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		4246C69B2B3113410036E8CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4246C6A32B3116210036E8CD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				4246C6A72B3119F30036E8CD /* DestinationItemView.swift */,
 				427325042B31FFF400068F53 /* Header.swift */,
 				4259E83C2B3268D3003292F6 /* PlayerColorButton.swift */,
+				42147B2B2B3517DB0003FA35 /* DestinationCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				4246C6AC2B311A490036E8CD /* Destination.swift in Sources */,
 				4246C6A62B3116750036E8CD /* DestinationView.swift in Sources */,
 				42A6A1472B2FC6F30069A897 /* GradientBackground.swift in Sources */,
+				42147B2C2B3517DB0003FA35 /* DestinationCard.swift in Sources */,
 				421ADB312B32AEB800BB8322 /* ColorExtension.swift in Sources */,
 				4246C6AA2B311A3D0036E8CD /* User.swift in Sources */,
 				4246C6AE2B311AA60036E8CD /* MainView.swift in Sources */,
