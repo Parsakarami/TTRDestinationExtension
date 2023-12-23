@@ -87,17 +87,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "22686C3C-D681-4283-A454-39C9E3BB2700"
-            shouldBeEnabled = "Yes"
+            uuid = "1EABE9C8-0371-44A0-8A05-A0FED7153D1A"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TTRDestinationExtension/Other/TTRDestinationExtensionApp.swift"
+            filePath = "TTRDestinationExtension/Views/Components/PlayerInformationCard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "seedDestination()"
-            landmarkType = "7">
+            startingLineNumber = "9"
+            endingLineNumber = "9"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -20,33 +20,8 @@ struct PlayerView : View {
         ZStack{
             GradientBackground(topColor: .blue, bottomColor: .black)
             VStack(alignment: .center, spacing: 20, content: {
-                HStack(content: {
-                    Label(viewModel.player.name, systemImage: "")
-                        .font(.system(size: 30, weight: .heavy, design: .default))
-                        .frame(width: 100,height: 80, alignment: .leading)
-                        .padding(.leading, 10)
-                    Spacer()
-                    VStack(content: {
-                        Label("points", systemImage: "")
-                            .font(.system(size: 15, weight: .regular, design: .default))
-                            .frame(width: 100,height: 25, alignment: .center)
-                            .padding(.top,15)
-                        Label(String(viewModel.player.totalPoints), systemImage: "profile")
-                            .font(.system(size: 34, weight: .bold, design: .default))
-                            .frame(width: 100,height: 55, alignment: .center)
-                            .offset(x:0,y: -15)
-                    })
-                    .frame(width: 100,height: 80, alignment: .center)
-                })
-                .foregroundColor(.white)
-                .frame(width: 320, height: 50, alignment: .leading)
-                .padding(.top,15)
-                .padding(.bottom,15)
-                .background(Color(byName: viewModel.player.color))
-                .cornerRadius(8)
-                
+                PlayerInformationCard(player: $viewModel.player)
                 Spacer()
-                
                 ScrollView{
                     VStack(spacing: 8, content: {
                         ForEach(viewModel.player.destinationTickets) { ticket in
@@ -54,12 +29,11 @@ struct PlayerView : View {
                         }
                     })
                 }
-                
                 Spacer()
-                    VStack{
-                            NavigationLink(destination: MainView())
-                            { CustomButton(text: "Home Page", systemImage: "house", function: {}) }
-                    }
+                VStack{
+                        NavigationLink(destination: MainView())
+                        { CustomButton(text: "Home Page", systemImage: "house", function: {}) }
+                }
             })
         }.navigationBarHidden(true)
     }
