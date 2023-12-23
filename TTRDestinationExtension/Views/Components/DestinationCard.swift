@@ -33,7 +33,7 @@ struct DestinationCard: View {
                 VStack(content: {
                     Text(String(destination.point))
                         .font(.system(size: 30, weight: .heavy, design: .default))
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                         .padding(.trailing,6)
                 }).frame(width: 60, height: 65, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(.blue)

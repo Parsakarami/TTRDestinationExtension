@@ -16,48 +16,60 @@ struct LoginView : View {
                     GradientBackground(topColor: .blue, bottomColor: .black)
                     VStack(alignment: .center, spacing: 20, content: {
                         Spacer()
+                        VStack(spacing: 10, content: {
+                            Text("Player name")
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                                .frame(alignment: .trailing)
+                                .aspectRatio(contentMode: .fit)
+                            
+                            Text(player.name)
+                                .font(.system(size: 45, weight: .bold, design: .default))
+                                .frame(alignment: .center)
+                                .foregroundColor(.white)
+                                .offset(x:0,y:-10)
+                            
+                            SecureField("Password", text: $viewModel.password)
+                                .frame(width: 200,height: 30)
+                                .padding(10)
+                                .background(.white)
+                                .cornerRadius(4.5)
+                                .onChange(of: viewModel.password){ pass in
+                                    viewModel.login(correctPassword: player.password)
+                                }
+                        }).frame(width: 400,height: 150,alignment: .center)
+                            .padding(.bottom,20)
                         
-                        Text("Player name")
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
-                            .frame(alignment: .trailing)
-                            .aspectRatio(contentMode: .fit)
-                        
-                        Text(player.name)
-                            .font(.system(size: 45, weight: .bold, design: .default))
-                            .frame(alignment: .center)
-                            .foregroundColor(.white)
-                            .offset(x:0,y:-15)
-                        
-                        SecureField("Password", text: $viewModel.password)
-                            .frame(width: 200,height: 30)
-                            .padding(10)
-                            .background(.white)
-                            .cornerRadius(4.5)
-                            .onChange(of: viewModel.password){ pass in
-                                viewModel.login(correctPassword: player.password)
-                            }
-                        
-                        if (viewModel.isAuthorized) {
-                            NavigationLink(destination: 
-                                            DestinationView(modelContext: dbContext, player: player)){
-                                    CustomButton(text: "Login",
-                                           systemImage: "",
-                                           function: viewModel.doNothing,
-                                           backColor: .green,
-                                           foreColor: .white
+                        VStack(spacing: 5, content: {
+                            if (viewModel.isAuthorized) {
+                                
+                                NavigationLink(destination:
+                                                DestinationView(modelContext: dbContext, player: player)) {
+                                    CustomButton(text: "Choose New Tickets",
+                                                 systemImage: "",
+                                                 function: viewModel.doNothing,
+                                                 backColor: .blue,
+                                                 foreColor: .white
                                     )}
-                                    .navigationBarBackButtonHidden(true)
-                                    .navigationBarHidden(true)
-                        } else {
-                            CustomButton(text: "Not Authorized",
-                                   systemImage: "lock.fill",
-                                   function: viewModel.doNothing,
-                                   backColor: .gray,
-                                   foreColor: .white
-                            ).disabled(false)
-                        }
-                        
+                                
+                                NavigationLink(destination:
+                                                PlayerView(player: player)) {
+                                    CustomButton(text: "See Profile",
+                                                 systemImage: "",
+                                                 function: viewModel.doNothing,
+                                                 backColor: .blue,
+                                                 foreColor: .white
+                                    )}
+                                
+                            } else {
+                                CustomButton(text: "Not Authorized",
+                                             systemImage: "lock.fill",
+                                             function: viewModel.doNothing,
+                                             backColor: .gray,
+                                             foreColor: .white
+                                ).disabled(false)
+                            }
+                        }).frame(width: 400,height: 77, alignment: .bottom)
                         
                         NavigationLink(destination: MainView()
                             .navigationBarBackButtonHidden(true)
@@ -65,12 +77,10 @@ struct LoginView : View {
                             {
                                 CustomButton(text: "Back", systemImage: "arrow.left", function: {})
                             }
-                        
-                        Spacer()
                     })
-                    .frame(width: 400, height: 400, alignment: .centerLastTextBaseline)
+                    .frame(width: 400, height: 400, alignment: .center)
                     .padding(50)
-                })
+                }).navigationBarBackButtonHidden(true)
     }
 }
 

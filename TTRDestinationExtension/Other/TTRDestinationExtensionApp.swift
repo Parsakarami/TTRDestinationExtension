@@ -48,7 +48,7 @@ struct TTRDestinationExtensionApp: App {
                         } else if let document = document, document.exists {
                             do {
                                 let ticket = try document.data(as: Ticket.self)
-                                
+                            
                             } catch {
                                 print("Error decoding document: \(error)")
                             }

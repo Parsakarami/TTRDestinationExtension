@@ -42,7 +42,6 @@
 		4246C69C2B3113410036E8CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4246C69B2B3113410036E8CD /* GoogleService-Info.plist */; };
 		4246C6A42B3116210036E8CD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6A32B3116210036E8CD /* LoginView.swift */; };
 		4246C6A62B3116750036E8CD /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6A52B3116750036E8CD /* DestinationView.swift */; };
-		4246C6A82B3119F30036E8CD /* DestinationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6A72B3119F30036E8CD /* DestinationItemView.swift */; };
 		4246C6AA2B311A3D0036E8CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6A92B311A3D0036E8CD /* User.swift */; };
 		4246C6AC2B311A490036E8CD /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6AB2B311A490036E8CD /* Destination.swift */; };
 		4246C6AE2B311AA60036E8CD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246C6AD2B311AA60036E8CD /* MainView.swift */; };
@@ -58,6 +57,8 @@
 		42D9EB922B2E0BED00262A45 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9EB912B2E0BED00262A45 /* Item.swift */; };
 		42D9EB942B2E0BED00262A45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D9EB932B2E0BED00262A45 /* Assets.xcassets */; };
 		42D9EB972B2E0BED00262A45 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D9EB962B2E0BED00262A45 /* Preview Assets.xcassets */; };
+		42E73B9C2B369AF100866480 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E73B9B2B369AF100866480 /* PlayerView.swift */; };
+		42E73B9E2B369B5900866480 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E73B9D2B369B5900866480 /* PlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +70,6 @@
 		4246C69B2B3113410036E8CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4246C6A32B3116210036E8CD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4246C6A52B3116750036E8CD /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
-		4246C6A72B3119F30036E8CD /* DestinationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationItemView.swift; sourceTree = "<group>"; };
 		4246C6A92B311A3D0036E8CD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4246C6AB2B311A490036E8CD /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		4246C6AD2B311AA60036E8CD /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -86,6 +86,8 @@
 		42D9EB912B2E0BED00262A45 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		42D9EB932B2E0BED00262A45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42D9EB962B2E0BED00262A45 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		42E73B9B2B369AF100866480 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		42E73B9D2B369B5900866480 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				4246C6A32B3116210036E8CD /* LoginView.swift */,
 				4246C6A52B3116750036E8CD /* DestinationView.swift */,
 				427325002B31FD2700068F53 /* RegisterView.swift */,
+				42E73B9B2B369AF100866480 /* PlayerView.swift */,
 				4246C6A22B3114E90036E8CD /* Components */,
 			);
 			path = Views;
@@ -154,6 +157,7 @@
 				4246C6B12B311E190036E8CD /* LoginViewModel.swift */,
 				427325022B31FDA000068F53 /* RegisterViewModel.swift */,
 				422080C42B35DF38006B90BE /* DestinationViewModel.swift */,
+				42E73B9D2B369B5900866480 /* PlayerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -183,7 +187,6 @@
 			children = (
 				42A6A1462B2FC6F30069A897 /* GradientBackground.swift */,
 				42A6A1482B2FC74B0069A897 /* CustomButton.swift */,
-				4246C6A72B3119F30036E8CD /* DestinationItemView.swift */,
 				427325042B31FFF400068F53 /* Header.swift */,
 				4259E83C2B3268D3003292F6 /* PlayerColorButton.swift */,
 				42147B2B2B3517DB0003FA35 /* DestinationCard.swift */,
@@ -332,7 +335,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4246C6A82B3119F30036E8CD /* DestinationItemView.swift in Sources */,
 				4246C6A42B3116210036E8CD /* LoginView.swift in Sources */,
 				427325012B31FD2700068F53 /* RegisterView.swift in Sources */,
 				4246C6AC2B311A490036E8CD /* Destination.swift in Sources */,
@@ -342,6 +344,7 @@
 				421ADB312B32AEB800BB8322 /* ColorExtension.swift in Sources */,
 				4246C6AA2B311A3D0036E8CD /* User.swift in Sources */,
 				4246C6AE2B311AA60036E8CD /* MainView.swift in Sources */,
+				42E73B9C2B369AF100866480 /* PlayerView.swift in Sources */,
 				42D9EB922B2E0BED00262A45 /* Item.swift in Sources */,
 				427325032B31FDA000068F53 /* RegisterViewModel.swift in Sources */,
 				4259E83D2B3268D3003292F6 /* PlayerColorButton.swift in Sources */,
@@ -353,6 +356,7 @@
 				42A6A1492B2FC74B0069A897 /* CustomButton.swift in Sources */,
 				4200405A2B363C6B00F590D1 /* Ticket.swift in Sources */,
 				4246C6B02B311E070036E8CD /* MainViewModel.swift in Sources */,
+				42E73B9E2B369B5900866480 /* PlayerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
