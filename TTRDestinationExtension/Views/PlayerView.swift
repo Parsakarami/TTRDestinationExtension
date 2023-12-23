@@ -13,7 +13,6 @@ struct PlayerView : View {
     @StateObject var viewModel : PlayerViewModel
     
     init(player: User) {
-        player.destinationTickets.sorted(by: {$0.point < $1.point})
         _viewModel = StateObject(wrappedValue: PlayerViewModel(player: player))
     }
     
