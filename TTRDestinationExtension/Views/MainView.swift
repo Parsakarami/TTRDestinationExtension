@@ -12,6 +12,7 @@ struct MainView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item] = []
     @Query private var users: [User] = []
+    @Query private var destinations: [Destination] = []
     @StateObject var viewModel : MainViewModel
     @State private var isShowingConfirmation: Bool = false
     
@@ -31,6 +32,12 @@ struct MainView: View {
                         Spacer()
                         VStack{
                             if users.count > 0 {
+                                Label("Choose your player", systemImage: "")
+                                    .font(.system(size: 15, weight: .light, design: .default))
+                                    .frame(alignment: .top)
+                                    .foregroundColor(.white)
+                                    .offset(x:0, y:-5)
+                                
                                 ForEach(users) { user in
                                     NavigationLink(destination: LoginView(player: user)
                                         .navigationBarTitle("", displayMode: .inline)
@@ -67,6 +74,25 @@ struct MainView: View {
                         Header()
                         Spacer()
                         VStack{
+                            HStack{
+                                if users.count != 0{
+                                    Label("^[\(users.count) player](inflect: true)", systemImage: "person.fill")
+                                        .font(.system(size: 16, weight: .light, design: .default))
+                                        .frame(alignment: .center)
+                                        .foregroundColor(.white)
+                                        .padding(.trailing,2)
+                                }
+                                
+                                if destinations.count != 0 {
+                                    Label("^[\(destinations.count) destination](inflect: true)", systemImage: "menucard.fill")
+                                        .font(.system(size: 16, weight: .light, design: .default))
+                                        .frame(alignment: .center)
+                                        .foregroundColor(.white)
+                                }
+                            }
+                            .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .center)
+                            .padding(.top,40)
+                            Spacer()
                             Spacer()
                             NavigationLink(destination: RegisterView(modelContext: modelContext)
                                 .navigationBarTitle("", displayMode: .inline)
@@ -78,7 +104,6 @@ struct MainView: View {
                                 CustomButton(text: "Fetch Destinations", systemImage: "wand.and.stars", function: {}, backColor: .blue, foreColor: .white)
                             }).alert("\(viewModel.destinationCounts) destinations are added.", isPresented: $viewModel.isDestinationFetched) {}
                                     
-                            Spacer()
                             Spacer()
                             
                             Button(action: {isShowingConfirmation = true}
