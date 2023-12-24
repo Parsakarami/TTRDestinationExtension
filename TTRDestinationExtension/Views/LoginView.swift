@@ -29,12 +29,14 @@ struct LoginView : View {
                                 .foregroundColor(.white)
                                 .offset(x:0,y:-10)
                             
-                            SecureField("Password", text: $viewModel.password)
+                            SecureField("Password", text: $viewModel.password,prompt: Text("Password").foregroundColor(.gray))
                                 .frame(width: 200,height: 30)
                                 .padding(10)
+                                .foregroundColor(.black)
                                 .background(.white)
-                                .cornerRadius(4.5)
-                                .onChange(of: viewModel.password){ pass in
+                                .keyboardType(.numberPad)
+                                .cornerRadius(6)
+                                .onChange(of: viewModel.password) {
                                     viewModel.login(correctPassword: player.password)
                                 }
                         }).frame(width: 400,height: 150,alignment: .center)
