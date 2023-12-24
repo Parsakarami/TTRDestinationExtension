@@ -39,12 +39,10 @@ struct LoginView : View {
                                 .onChange(of: viewModel.password) {
                                     viewModel.login(correctPassword: player.password)
                                 }
-                        }).frame(width: 400,height: 150,alignment: .center)
-                            .padding(.bottom,20)
-                        
+                        }).frame(width: 400,alignment: .center)
+                            
                         VStack(spacing: 5, content: {
                             if (viewModel.isAuthorized) {
-                                
                                 NavigationLink(destination:
                                                 DestinationView(modelContext: dbContext, player: player)) {
                                     CustomButton(text: "Choose New Tickets",
@@ -71,8 +69,10 @@ struct LoginView : View {
                                              foreColor: .white
                                 ).disabled(false)
                             }
-                        }).frame(width: 400,height: 77, alignment: .bottom)
-                        
+                        }).frame(width: 400, height: 100, alignment: .top)
+                            .padding()
+                        Spacer()
+                        Spacer()
                         NavigationLink(destination: MainView(modelContext: self.dbContext)
                             .navigationBarBackButtonHidden(true)
                             .navigationBarHidden(true))
@@ -80,8 +80,7 @@ struct LoginView : View {
                                 CustomButton(text: "Back", systemImage: "arrow.left", function: {})
                             }
                     })
-                    .frame(width: 400, height: 400, alignment: .center)
-                    .padding(50)
+                    .frame(width: 400, alignment: .bottom)
                 }).navigationBarBackButtonHidden(true)
     }
 }

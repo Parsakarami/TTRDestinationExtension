@@ -30,17 +30,30 @@ struct MainView: View {
                         Header()
                         Spacer()
                         VStack{
-                            ForEach(users) { user in
-                                NavigationLink(destination: LoginView(player: user)
-                                    .navigationBarTitle("", displayMode: .inline)
-                                    .navigationBarHidden(true)) {
-                                        CustomButton(text: "\(user.name)",
-                                                     systemImage: "",
-                                                     function: addItem,
-                                                     backColor: Color(byName: user.color) ?? .white,
-                                                     foreColor: .white)
-                                    }
-                            }   
+                            if users.count > 0 {
+                                ForEach(users) { user in
+                                    NavigationLink(destination: LoginView(player: user)
+                                        .navigationBarTitle("", displayMode: .inline)
+                                        .navigationBarHidden(true)) {
+                                            CustomButton(text: "\(user.name)",
+                                                         systemImage: "",
+                                                         function: addItem,
+                                                         backColor: Color(byName: user.color) ?? .white,
+                                                         foreColor: .white)
+                                        }
+                                }
+                            } else {
+                                Label("No player has been added!", systemImage: "")
+                                    .font(.system(size: 22, weight: .bold, design: .default))
+                                    .frame(alignment: .center)
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                Label("To add players, go to the settings", systemImage: "")
+                                    .font(.system(size: 15, weight: .light, design: .default))
+                                    .frame(alignment: .top)
+                                    .foregroundColor(.white)
+                                    .offset(x:0, y:-5)
+                            }
                         }.frame(width: UIScreen.main.bounds.width)
                         Spacer()
                     }).padding(25)
@@ -54,6 +67,7 @@ struct MainView: View {
                         Header()
                         Spacer()
                         VStack{
+                            Spacer()
                             NavigationLink(destination: RegisterView(modelContext: modelContext)
                                 .navigationBarTitle("", displayMode: .inline)
                                 .navigationBarHidden(true))
@@ -61,17 +75,22 @@ struct MainView: View {
                             
                             Button(action: { viewModel.fetchDestination()}
                                    , label: {
-                                CustomButton(text: "Fetch Destination", systemImage: "wand.and.stars", function: resetForm, backColor: .blue, foreColor: .white)
-                            })
+                                CustomButton(text: "Fetch Destinations", systemImage: "wand.and.stars", function: {}, backColor: .blue, foreColor: .white)
+                            }).alert("\(viewModel.destinationCounts) destinations are added.", isPresented: $viewModel.isDestinationFetched) {}
+                                    
+                            Spacer()
+                            Spacer()
                             
                             Button(action: {isShowingConfirmation = true}
                                    , label: {
-                                CustomButton(text: "Clear", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
+                                CustomButton(text: "Clear All", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
                             }).alert("Are you sure?", isPresented: $isShowingConfirmation) {
-                                Button("Delete",role:.destructive) {resetForm()}
+                                Button("Delete",role:.destructive) {
+                                    resetForm()
+                                    isShowingConfirmation = false
+                                }
                             }
                         }
-                        Spacer()
                     }.padding(25)
                 }.tabItem {
                         Label("Settings",systemImage: "gearshape.fill")

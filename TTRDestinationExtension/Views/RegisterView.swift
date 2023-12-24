@@ -65,7 +65,7 @@ struct RegisterView: View {
                                 }
                             } else {
                                 Label("All players are added!", systemImage: "")
-                                    .font(.system(size: 20, weight: .medium, design: .default))
+                                    .font(.system(size: 18, weight: .medium, design: .default))
                                     .frame(alignment: .center)
                                     .foregroundColor(.white)
                                     .padding(10)

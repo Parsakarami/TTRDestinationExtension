@@ -13,7 +13,8 @@ class MainViewModel: ObservableObject{
     private var tickets: [Ticket] = []
     private var dbContext: ModelContext
     private var isInitilized : Bool = false
-    
+    @Published var destinationCounts : Int = 0
+    @Published var isDestinationFetched : Bool = false
     init(context: ModelContext) {
         self.dbContext = context
         if !self.isInitilized {
@@ -28,6 +29,8 @@ class MainViewModel: ObservableObject{
                 dbContext.insert(Destination(ticket: ticket))
             }
             try dbContext.save()
+            destinationCounts = tickets.count
+            isDestinationFetched = destinationCounts > 0
         } catch {
             print("Cannot save in the local database. error details: \(error)")
         }
