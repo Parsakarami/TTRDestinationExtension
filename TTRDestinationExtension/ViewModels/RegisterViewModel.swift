@@ -11,8 +11,8 @@ import SwiftData
 class RegisterViewModel : ObservableObject{
     @Published var username : String = ""
     @Published var password : String = ""
-    @Published var color : String = "green"
-    
+    @Published var selectedColor : String = "green"
+    @Published var colors : [String] = ["green", "black", "yellow", "blue", "red"]
     @Published var message : String = ""
     @Published var isAttempted : Bool = false
     @Published var isSuccessful : Bool = false
@@ -22,24 +22,31 @@ class RegisterViewModel : ObservableObject{
     
     init(context: ModelContext) {
         self.dbContext = context
-        fetchData()
-    }
-    
-    func setColor(color: String){
-        self.color = color
+        initialize()
     }
     
     func register() {
         isAttempted = true
         isSuccessful = validate()
         if isSuccessful {
-            let newUser = User(name: username,password: password, color: color)
+            let newUser = User(name: username,password: password, color: selectedColor)
             dbContext.insert(newUser)
             message = "Added!"
+            removeColor(color: self.selectedColor)
         }
     }
     
-    func validate() -> Bool {
+    func reset() {
+        message = ""
+        username = ""
+        password = ""
+        selectedColor = colors.first ?? colors.last ?? "red"
+        isAttempted = false
+        isSuccessful = false
+        initialize()
+    }
+    
+    private func validate() -> Bool {
         
         guard !username.trimmingCharacters(in: .whitespaces).isEmpty else{
             message = "Username is required."
@@ -57,6 +64,24 @@ class RegisterViewModel : ObservableObject{
         }
         
         return true
+    }
+    
+    private func initialize(){
+        fetchData()
+        removeInUsedColors()
+    }
+    
+    private func removeInUsedColors(){
+        users.forEach { user in
+            removeColor(color: user.color)
+        }
+    }
+    
+    private func removeColor(color: String){
+        let colorIndex = colors.firstIndex(of: color) ?? -1
+        if(colorIndex > -1) {
+            self.colors.remove(at: colorIndex)
+        }
     }
     
     private func fetchData(){

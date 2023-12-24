@@ -22,46 +22,62 @@ struct MainView: View {
     var body: some View {
         
         NavigationView {
-            ZStack {
-                GradientBackground(topColor: .blue, bottomColor: .black)
-                VStack(alignment: .center, content: {
-                    Header()
-                    Spacer()
-                    VStack{
-                        NavigationLink(destination: RegisterView(modelContext: modelContext)
-                            .navigationBarTitle("", displayMode: .inline)
-                            .navigationBarHidden(true))
-                        { CustomButton(text: "Add Player", systemImage: "plus", function: {}, backColor: .white, foreColor: .blue) }
+            
+                
+            TabView {
+                GradientStack{
+                    VStack(alignment: .center, content: {
+                        Header()
+                        Spacer()
+                        VStack{
+                            ForEach(users) { user in
+                                NavigationLink(destination: LoginView(player: user)
+                                    .navigationBarTitle("", displayMode: .inline)
+                                    .navigationBarHidden(true)) {
+                                        CustomButton(text: "\(user.name)",
+                                                     systemImage: "",
+                                                     function: addItem,
+                                                     backColor: Color(byName: user.color) ?? .white,
+                                                     foreColor: .white)
+                                    }
+                            }
+                        }.frame(width: UIScreen.main.bounds.width,height: 400)
+                        Spacer()
+                    }).padding(25)
+                }
+                .tabItem {
+                    Label("Play",systemImage: "gamecontroller.fill")
+                }
                         
-                        Button(action: { viewModel.fetchDestination()}
-                               , label: {
-                            CustomButton(text: "Fetch Destination", systemImage: "wand.and.stars", function: resetForm, backColor: .blue, foreColor: .white)
-                        })
-                        
-                        Button(action: {isShowingConfirmation = true}
-                               , label: {
-                            CustomButton(text: "Clear", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
-                        }).alert("Are you sure?", isPresented: $isShowingConfirmation) {
-                            Button("Delete",role:.destructive) {resetForm()}
-                        }
-                    }
-                    Spacer()
-                    
+                GradientStack{
                     VStack{
-                        ForEach(users) { user in
-                            NavigationLink(destination: LoginView(player: user)
+                        Header()
+                        Spacer()
+                        VStack{
+                            NavigationLink(destination: RegisterView(modelContext: modelContext)
                                 .navigationBarTitle("", displayMode: .inline)
-                                .navigationBarHidden(true)) {
-                                    CustomButton(text: "\(user.name)",
-                                                 systemImage: "",
-                                                 function: addItem,
-                                                 backColor: Color(byName: user.color) ?? .white,
-                                                 foreColor: .white)
-                                }
+                                .navigationBarHidden(true))
+                            { CustomButton(text: "Add Player", systemImage: "plus", function: {}, backColor: .white, foreColor: .blue) }
+                            
+                            Button(action: { viewModel.fetchDestination()}
+                                   , label: {
+                                CustomButton(text: "Fetch Destination", systemImage: "wand.and.stars", function: resetForm, backColor: .blue, foreColor: .white)
+                            })
+                            
+                            Button(action: {isShowingConfirmation = true}
+                                   , label: {
+                                CustomButton(text: "Clear", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
+                            }).alert("Are you sure?", isPresented: $isShowingConfirmation) {
+                                Button("Delete",role:.destructive) {resetForm()}
+                            }
                         }
-                    }.frame(width: UIScreen.main.bounds.width,height: 400)
-                }).padding(25)
-            }
+                        Spacer()
+                    }.padding(25)
+                }.tabItem {
+                        Label("Settings",systemImage: "gearshape.fill")
+                }.foregroundStyle(.white)
+                    
+            }.foregroundColor(.white)
         }.navigationBarBackButtonHidden(true)
         
         

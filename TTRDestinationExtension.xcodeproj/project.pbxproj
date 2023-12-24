@@ -60,6 +60,7 @@
 		42D9EB972B2E0BED00262A45 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D9EB962B2E0BED00262A45 /* Preview Assets.xcassets */; };
 		42E73B9C2B369AF100866480 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E73B9B2B369AF100866480 /* PlayerView.swift */; };
 		42E73B9E2B369B5900866480 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E73B9D2B369B5900866480 /* PlayerViewModel.swift */; };
+		42EC32402B3891F600F80131 /* GradientStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EC323F2B3891F600F80131 /* GradientStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		42D9EB962B2E0BED00262A45 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42E73B9B2B369AF100866480 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		42E73B9D2B369B5900866480 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		42EC323F2B3891F600F80131 /* GradientStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				4259E83C2B3268D3003292F6 /* PlayerColorButton.swift */,
 				42147B2B2B3517DB0003FA35 /* DestinationCard.swift */,
 				429D5EB32B36A32900429F26 /* PlayerInformationCard.swift */,
+				42EC323F2B3891F600F80131 /* GradientStack.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			files = (
 				4246C6A42B3116210036E8CD /* LoginView.swift in Sources */,
 				427325012B31FD2700068F53 /* RegisterView.swift in Sources */,
+				42EC32402B3891F600F80131 /* GradientStack.swift in Sources */,
 				4246C6AC2B311A490036E8CD /* Destination.swift in Sources */,
 				4246C6A62B3116750036E8CD /* DestinationView.swift in Sources */,
 				42A6A1472B2FC6F30069A897 /* GradientBackground.swift in Sources */,

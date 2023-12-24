@@ -11,7 +11,7 @@ import SwiftData
 struct RegisterView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject var viewModel : RegisterViewModel
-    @State var selectColor : String = "green"
+    
     init(modelContext: ModelContext) {
         _viewModel = StateObject(wrappedValue: RegisterViewModel(context: modelContext))
     }
@@ -27,21 +27,23 @@ struct RegisterView: View {
                     
                     VStack{
                         
-                        TextField("Player name", text: $viewModel.username)
+                        TextField("", text: $viewModel.username, prompt: Text("Player name").foregroundColor(.gray))
                             .frame(width: 200,height: 20)
                             .padding(10)
+                            .foregroundColor(.black)
                             .background(.white)
-                            .cornerRadius(4.5)
                             .autocorrectionDisabled()
                             .autocapitalization(.none)
                             .keyboardType(.namePhonePad)
+                            .cornerRadius(6)
                         
-                        SecureField("Password", text: $viewModel.password)
+                        SecureField("", text: $viewModel.password, prompt: Text("Password").foregroundColor(.gray))
                             .frame(width: 200,height: 20)
                             .padding(10)
+                            .foregroundColor(.black)
                             .background(.white)
-                            .cornerRadius(4.5)
                             .keyboardType(.numberPad)
+                            .cornerRadius(6)
                         
                         VStack{
                             Label("Choose your color", systemImage: "")
@@ -51,36 +53,13 @@ struct RegisterView: View {
                             .padding(10)
                             
                             HStack{
-                                Button(action: {
-                                    selectColor = "green"
-                                    viewModel.setColor(color: selectColor)
-                                }, label: {
-                                    PlayerColorButton(isMatch: selectColor == "green", bgColor: .green)
-                                })
-                                Button(action: {
-                                    selectColor = "black"
-                                    viewModel.setColor(color: selectColor)
-                                }, label: {
-                                    PlayerColorButton(isMatch: selectColor == "black", bgColor: .black)
-                                })
-                                Button(action: {
-                                    selectColor = "yellow"
-                                    viewModel.setColor(color: selectColor)
-                                }, label: {
-                                    PlayerColorButton(isMatch: selectColor == "yellow", bgColor: .yellow)
-                                })
-                                Button(action: {
-                                    selectColor = "blue"
-                                    viewModel.setColor(color: selectColor)
-                                }, label: {
-                                    PlayerColorButton(isMatch: selectColor == "blue", bgColor: .blue)
-                                })
-                                Button(action: {
-                                    selectColor = "red"
-                                    viewModel.setColor(color: selectColor)
-                                }, label: {
-                                    PlayerColorButton(isMatch: selectColor == "red", bgColor: .red)
-                                })
+                                ForEach(viewModel.colors, id: \.self) { color in
+                                    Button(action: {
+                                        viewModel.selectedColor = color
+                                    }, label: {
+                                        PlayerColorButton(isMatch: viewModel.selectedColor == color, bgColor: Color(byName: color) ?? .green )
+                                    })
+                                }
                             }
                         }
                         
@@ -97,13 +76,21 @@ struct RegisterView: View {
                         
                         Spacer()
                         
-                        Button(action: viewModel.register,
-                               label: { CustomButton(text: "Add Player",
-                                         systemImage: "",
-                                         function: viewModel.register,
-                                         backColor: viewModel.isSuccessful ? .gray : .green,
-                                         foreColor: .white) })
-                        .disabled(viewModel.isSuccessful)
+                        if(!viewModel.isSuccessful) {
+                            Button(action: viewModel.register,
+                                   label: { CustomButton(text: "Add Player",
+                                                         systemImage: "",
+                                                         function: viewModel.register,
+                                                         backColor: .green,
+                                                         foreColor: .white) })
+                        } else {
+                            Button(action: viewModel.reset,
+                                   label: { CustomButton(text: "Reset From",
+                                                         systemImage: "",
+                                                         function: viewModel.reset,
+                                                         backColor: .blue,
+                                                         foreColor: .white) })
+                        }
                         
                         NavigationLink(destination: MainView(modelContext: self.modelContext)
                             .navigationBarTitle("", displayMode: .inline)
