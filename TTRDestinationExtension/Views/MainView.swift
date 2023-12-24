@@ -40,8 +40,8 @@ struct MainView: View {
                                                      backColor: Color(byName: user.color) ?? .white,
                                                      foreColor: .white)
                                     }
-                            }
-                        }.frame(width: UIScreen.main.bounds.width,height: 400)
+                            }   
+                        }.frame(width: UIScreen.main.bounds.width)
                         Spacer()
                     }).padding(25)
                 }

@@ -16,7 +16,8 @@ class RegisterViewModel : ObservableObject{
     @Published var message : String = ""
     @Published var isAttempted : Bool = false
     @Published var isSuccessful : Bool = false
-    
+    @Published var isHitMaximumSize : Bool = false
+    private let MAXIMUM_USER = 5
     private var dbContext: ModelContext
     private var users = [User]()
     
@@ -33,16 +34,13 @@ class RegisterViewModel : ObservableObject{
             dbContext.insert(newUser)
             message = "Added!"
             removeColor(color: self.selectedColor)
+            
+            let userCount = users.count + 1
+            isHitMaximumSize = userCount == MAXIMUM_USER
         }
     }
     
     func reset() {
-        message = ""
-        username = ""
-        password = ""
-        selectedColor = colors.first ?? colors.last ?? "red"
-        isAttempted = false
-        isSuccessful = false
         initialize()
     }
     
@@ -58,17 +56,19 @@ class RegisterViewModel : ObservableObject{
             return false
         }
         
-        guard users.count <= 4 else {
-            message = "You hit the maximum player!"
-            return false
-        }
-        
         return true
     }
     
     private func initialize(){
         fetchData()
+        isHitMaximumSize = users.count == MAXIMUM_USER
         removeInUsedColors()
+        message = ""
+        username = ""
+        password = ""
+        selectedColor = colors.first ?? colors.last ?? "red"
+        isAttempted = false
+        isSuccessful = false
     }
     
     private func removeInUsedColors(){
