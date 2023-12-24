@@ -10,11 +10,17 @@ import SwiftData
 
 struct MainView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-    @Query private var users: [User]
-
+    @Query private var items: [Item] = []
+    @Query private var users: [User] = []
+    @StateObject var viewModel : MainViewModel
     @State private var isShowingConfirmation: Bool = false
+    
+    init(modelContext: ModelContext) {
+        _viewModel = StateObject(wrappedValue: MainViewModel(context: modelContext))
+    }
+    
     var body: some View {
+        
         NavigationView {
             ZStack {
                 GradientBackground(topColor: .blue, bottomColor: .black)
@@ -26,6 +32,12 @@ struct MainView: View {
                             .navigationBarTitle("", displayMode: .inline)
                             .navigationBarHidden(true))
                         { CustomButton(text: "Add Player", systemImage: "plus", function: {}, backColor: .white, foreColor: .blue) }
+                        
+                        Button(action: { viewModel.fetchDestination()}
+                               , label: {
+                            CustomButton(text: "Fetch Destination", systemImage: "wand.and.stars", function: resetForm, backColor: .blue, foreColor: .white)
+                        })
+                        
                         Button(action: {isShowingConfirmation = true}
                                , label: {
                             CustomButton(text: "Clear", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
@@ -103,6 +115,7 @@ struct MainView: View {
         withAnimation {
             do {
                 try modelContext.delete(model: User.self)
+                try modelContext.delete(model: Destination.self)
             }
             catch {
                 fatalError(error.localizedDescription)
@@ -128,7 +141,7 @@ struct MainView: View {
 
 
 
-#Preview {
-    MainView()
-        .modelContainer(for: [Item.self, User.self], inMemory: true)
-}
+//#Preview {
+//    MainView()
+//        .modelContainer(for: [Item.self, User.self], inMemory: true)
+//}

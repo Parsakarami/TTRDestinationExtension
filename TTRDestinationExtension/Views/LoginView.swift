@@ -71,7 +71,7 @@ struct LoginView : View {
                             }
                         }).frame(width: 400,height: 77, alignment: .bottom)
                         
-                        NavigationLink(destination: MainView()
+                        NavigationLink(destination: MainView(modelContext: self.dbContext)
                             .navigationBarBackButtonHidden(true)
                             .navigationBarHidden(true))
                             {

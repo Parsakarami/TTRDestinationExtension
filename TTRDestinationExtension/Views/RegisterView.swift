@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct RegisterView: View {
+    @Environment(\.modelContext) private var modelContext
     @StateObject var viewModel : RegisterViewModel
     @State var selectColor : String = "green"
     init(modelContext: ModelContext) {
@@ -104,7 +105,7 @@ struct RegisterView: View {
                                          foreColor: .white) })
                         .disabled(viewModel.isSuccessful)
                         
-                        NavigationLink(destination: MainView()
+                        NavigationLink(destination: MainView(modelContext: self.modelContext)
                             .navigationBarTitle("", displayMode: .inline)
                             .navigationBarHidden(true))
                         { CustomButton(text: "Back", systemImage: "", function: {}) }

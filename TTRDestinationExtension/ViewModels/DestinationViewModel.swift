@@ -9,26 +9,31 @@ import Foundation
 import SwiftData
 
 class DestinationViewModel : ObservableObject{
-    private var dbContext: ModelContext
+    private var dbContext: ModelContext	
     private var destinations = [Destination]()
     @Published var threeDestinations : [Destination] = []
     @Published var player : User
     @Published var isFirstSelected : Bool = false
     @Published var isSecondSelected : Bool = false
     @Published var isThirdSelected : Bool = false
+    @Published var isEmpty : Bool = false
     @Published var isAdded : Bool = false
     
     init(context: ModelContext, player: User) {
         self.dbContext = context
         self.player = player
         fetchData()
-        seedDestination()
+        setThreeRandomDestinations()
     }
     
-    private func seedDestination(){
-        self.threeDestinations.append(Destination(point: 21, origin: "New York", destination: "Los Angles",uuid: nil))
-        self.threeDestinations.append(Destination(point: 17, origin: "San Fransisco", destination: "Atlanta",uuid: nil))
-        self.threeDestinations.append(Destination(point: 12, origin: "Torotno", destination: "Miami",uuid: nil))
+    private func setThreeRandomDestinations(){
+        
+        if(destinations.count >= 3) {
+            threeDestinations = Array(destinations.prefix(3))
+        } else {
+            isEmpty = true
+        }
+        
     }
     
     func selectDestination(index: Int)
@@ -51,27 +56,28 @@ class DestinationViewModel : ObservableObject{
     func addSelectedDestination() {
         if(isFirstSelected){
             player.addDestination(destination: threeDestinations[0])
+            threeDestinations[0].isSelected = true
         }
         
         if(isSecondSelected){
             player.addDestination(destination: threeDestinations[1])
+            threeDestinations[1].isSelected = true
         }
         
         if(isThirdSelected){
             player.addDestination(destination: threeDestinations[2])
+            threeDestinations[2].isSelected = true
         }
         
-//        do {
-//            try dbContext.save()
-//        } catch {
-//            print("Error saving entity: \(error.localizedDescription)")
-//        }
+        try? dbContext.save()
     }
     
     private func fetchData(){
         do {
             let descriptor = FetchDescriptor<Destination>(sortBy: [SortDescriptor(\.point)])
-            destinations = try dbContext.fetch(descriptor)
+            destinations = try dbContext.fetch(descriptor).filter {ticket in
+                return !ticket.isSelected
+            }.shuffled()
         } catch {
             print("Fetch failed")
         }

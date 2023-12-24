@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct DestinationView : View {
+    @Environment(\.modelContext) private var modelContext
     @StateObject var viewModel : DestinationViewModel
     
     init(modelContext: ModelContext, player: User) {
@@ -22,34 +23,45 @@ struct DestinationView : View {
                 PlayerInformationCard(player: $viewModel.player)
                 Spacer()
                 VStack(spacing: 8, content: {
-                    Button(action: { viewModel.selectDestination(index: 0) }, label: {
-                        DestinationCard(destination: viewModel.threeDestinations[0],isSelected: $viewModel.isFirstSelected) })
-                    
-                    Button(action: { viewModel.selectDestination(index: 1) }, label: {
-                        DestinationCard(destination: viewModel.threeDestinations[1],isSelected: $viewModel.isSecondSelected) })
-                    
-                    Button(action: { viewModel.selectDestination(index: 2) }, label: {
-                        DestinationCard(destination: viewModel.threeDestinations[2],isSelected: $viewModel.isThirdSelected) })
-                })
+                    if viewModel.isEmpty {
+                        Label("No more destinations are available.",
+                        systemImage: "")
+                        .font(.system(size: 18, weight: .medium, design: .default))
+                        .frame(alignment: .center)
+                        .foregroundColor(.white)
+                        .padding()
+                    } else {
+                        Button(action: { viewModel.selectDestination(index: 0) }, label: {
+                            DestinationCard(destination: viewModel.threeDestinations[0],isSelected: $viewModel.isFirstSelected) })
+                        
+                        Button(action: { viewModel.selectDestination(index: 1) }, label: {
+                            DestinationCard(destination: viewModel.threeDestinations[1],isSelected: $viewModel.isSecondSelected) })
+                        
+                        Button(action: { viewModel.selectDestination(index: 2) }, label: {
+                            DestinationCard(destination: viewModel.threeDestinations[2],isSelected: $viewModel.isThirdSelected) })
+                    }
+                }).frame(alignment: .center)
                 
                 Spacer()
                 VStack{
                     Spacer()
                     VStack{
-                        if viewModel.isFirstSelected || viewModel.isSecondSelected || viewModel.isThirdSelected {
-                            if viewModel.isAdded {
-                                CustomButton(text: "Added", systemImage: "chechmark", function: {},backColor: .green, foreColor: .white)
+                        if !viewModel.isEmpty {
+                            if viewModel.isFirstSelected || viewModel.isSecondSelected || viewModel.isThirdSelected {
+                                if viewModel.isAdded {
+                                    CustomButton(text: "Added", systemImage: "chechmark", function: {},backColor: .green, foreColor: .white)
+                                } else {
+                                    Button(action: { viewModel.addSelectedDestination()}, label: {
+                                        CustomButton(text: "Add", systemImage: "plus", function: {},backColor: .white, foreColor: .blue) })
+                                }
                             } else {
-                                Button(action: { viewModel.addSelectedDestination()}, label: {
-                                    CustomButton(text: "Add", systemImage: "plus", function: {},backColor: .white, foreColor: .blue) })
+                                CustomButton(text: "Not Selected", systemImage: "", function: {}, backColor: .red, foreColor: .white)
                             }
-                        } else {
-                            CustomButton(text: "Not Selected", systemImage: "", function: {}, backColor: .red, foreColor: .white)
                         }
                     }
                     VStack{
-                        if viewModel.isAdded {
-                            NavigationLink(destination: MainView()
+                        if viewModel.isAdded || viewModel.isEmpty {
+                            NavigationLink(destination: MainView(modelContext: self.modelContext)
                                 .navigationBarBackButtonHidden(true)
                                 .navigationBarHidden(true))
                             { CustomButton(text: "Home Page", systemImage: "house", function: {}) }

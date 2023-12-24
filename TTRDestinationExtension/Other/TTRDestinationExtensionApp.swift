@@ -28,7 +28,7 @@ struct TTRDestinationExtensionApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(modelContext: sharedModelContainer.mainContext)
         }
         .modelContainer(sharedModelContainer)
     }
@@ -36,25 +36,8 @@ struct TTRDestinationExtensionApp: App {
     init()
     {
         FirebaseApp.configure()
-        seedDestination()
     }
     
     func seedDestination() {
-        let db = Firestore.firestore()
-            let ticketDocument = db.collection("tickets").document("1")
-            ticketDocument.getDocument { (document, error) in
-                        if let error = error {
-                            print("Error getting document: \(error)")
-                        } else if let document = document, document.exists {
-                            do {
-                                let ticket = try document.data(as: Ticket.self)
-                            
-                            } catch {
-                                print("Error decoding document: \(error)")
-                            }
-                        } else {
-                            print("Document does not exist")
-                        }
-        }
     }
 }

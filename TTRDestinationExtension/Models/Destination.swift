@@ -14,10 +14,20 @@ final class Destination {
     var point: Int
     var origin: String
     var destination: String
-    init(point: Int, origin: String, destination: String, uuid: String?) {
+    var isSelected: Bool
+    init(point: Int, origin: String, destination: String, uuid: String?, isSelected: Bool?) {
         self.id = uuid ?? UUID().uuidString
         self.point = point
         self.origin = origin
         self.destination = destination
+        self.isSelected = isSelected ?? false
+    }
+    
+    init(ticket: Ticket){
+        self.id = ticket.id
+        self.point = ticket.point
+        self.origin = ticket.origin
+        self.destination = ticket.destination
+        self.isSelected = false
     }
 }

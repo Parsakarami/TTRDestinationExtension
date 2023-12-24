@@ -13,7 +13,7 @@ struct Ticket : Codable {
     var origin: String
     var destination: String
     init(id: String?, point: Int, origin: String, destination: String) {
-        self.id = id ?? String(Date().timeIntervalSinceReferenceDate)
+        self.id = id ?? UUID().uuidString
         self.point = point
         self.origin = origin
         self.destination = destination

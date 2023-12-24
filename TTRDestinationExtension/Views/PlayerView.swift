@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct PlayerView : View {
+    @Environment(\.modelContext) private var modelContext
     @StateObject var viewModel : PlayerViewModel
     
     init(player: User) {
@@ -31,7 +32,7 @@ struct PlayerView : View {
                 }
                 Spacer()
                 VStack{
-                        NavigationLink(destination: MainView())
+                    NavigationLink(destination: MainView(modelContext: self.modelContext))
                         { CustomButton(text: "Home Page", systemImage: "house", function: {}) }
                 }
             })
