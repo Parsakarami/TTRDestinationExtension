@@ -15,6 +15,7 @@ class MainViewModel: ObservableObject{
     private var isInitilized : Bool = false
     @Published var destinationCounts : Int = 0
     @Published var isDestinationFetched : Bool = false
+    
     init(context: ModelContext) {
         self.dbContext = context
         if !self.isInitilized {
@@ -34,6 +35,28 @@ class MainViewModel: ObservableObject{
         } catch {
             print("Cannot save in the local database. error details: \(error)")
         }
+    }
+    
+    func resetPoints(){
+        // Fetch users
+        // Clear points and destination
+        let userDescriptor = FetchDescriptor<User>(sortBy: [SortDescriptor(\.name)])
+        let users = try? dbContext.fetch(userDescriptor)
+        users?.forEach { user in
+            user.totalPoints = 0
+            user.destinationTickets.removeAll()
+        }
+        
+        // Update selected destinations to notSelected
+        let destinationDescriptor = FetchDescriptor<Destination>(sortBy: [SortDescriptor(\.point)])
+        let destinations = try? dbContext.fetch(destinationDescriptor)
+        let unSelectedDestinations = destinations?.filter{ return $0.isSelected == true }
+            
+        unSelectedDestinations?.forEach { item in
+            item.isSelected = false
+        }
+        
+        try? dbContext.save()
     }
     
     private func seedDestinationFromFirestore(){

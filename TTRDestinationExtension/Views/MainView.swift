@@ -14,8 +14,8 @@ struct MainView: View {
     @Query private var users: [User] = []
     @Query private var destinations: [Destination] = []
     @StateObject var viewModel : MainViewModel
-    @State private var isShowingConfirmation: Bool = false
-    
+    @State private var isShowingResetAllDataDialog: Bool = false
+    @State private var isShowingResetAppPointsDialog: Bool = false
     init(modelContext: ModelContext) {
         _viewModel = StateObject(wrappedValue: MainViewModel(context: modelContext))
     }
@@ -97,22 +97,51 @@ struct MainView: View {
                             NavigationLink(destination: RegisterView(modelContext: modelContext)
                                 .navigationBarTitle("", displayMode: .inline)
                                 .navigationBarHidden(true))
-                            { CustomButton(text: "Add Player", systemImage: "plus", function: {}, backColor: .white, foreColor: .blue) }
+                            { CustomButton(text: "Add Player",
+                                           systemImage: "plus",
+                                           function: {},
+                                           backColor: .white,
+                                           foreColor: .blue) }
                             
-                            Button(action: { viewModel.fetchDestination()}
-                                   , label: {
-                                CustomButton(text: "Fetch Destinations", systemImage: "wand.and.stars", function: {}, backColor: .blue, foreColor: .white)
+                            Button(action: {
+                                if destinations.count == 0 {
+                                    viewModel.fetchDestination()
+                                }
+                            }, label: {
+                                CustomButton(text: destinations.count == 0 ? "Fetch Destinations" : "Fetched",
+                                             systemImage: "wand.and.stars",
+                                             function: {},
+                                             backColor: destinations.count == 0 ? .blue : .gray,
+                                             foreColor: .white)
                             }).alert("\(viewModel.destinationCounts) destinations are added.", isPresented: $viewModel.isDestinationFetched) {}
-                                    
-                            Spacer()
                             
-                            Button(action: {isShowingConfirmation = true}
+                            Spacer()
+                            Button(action: {
+                                    isShowingResetAppPointsDialog = true
+                            }, label: {
+                                CustomButton(text: "Reset points",
+                                             systemImage: "arrow.clockwise",
+                                             function: {},
+                                             backColor: .white,
+                                             foreColor: .red)
+                            }).alert("Are you sure?", isPresented: $isShowingResetAppPointsDialog) {
+                                Button("Delete", role:.destructive) {
+                                    viewModel.resetPoints()
+                                    isShowingResetAppPointsDialog = false
+                                }
+                            }
+                            
+                            Button(action: {isShowingResetAllDataDialog = true}
                                    , label: {
-                                CustomButton(text: "Clear All", systemImage: "trash", function: resetForm, backColor: .red, foreColor: .white)
-                            }).alert("Are you sure?", isPresented: $isShowingConfirmation) {
-                                Button("Delete",role:.destructive) {
+                                CustomButton(text: "Clear all data",
+                                             systemImage: "trash",
+                                             function: resetForm,
+                                             backColor: .red,
+                                             foreColor: .white)
+                            }).alert("Are you sure?", isPresented: $isShowingResetAllDataDialog) {
+                                Button("Delete", role:.destructive) {
                                     resetForm()
-                                    isShowingConfirmation = false
+                                    isShowingResetAllDataDialog = false
                                 }
                             }
                         }
