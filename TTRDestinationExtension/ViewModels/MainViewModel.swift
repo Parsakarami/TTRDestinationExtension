@@ -15,6 +15,7 @@ class MainViewModel: ObservableObject{
     private var isInitilized : Bool = false
     @Published var destinationCounts : Int = 0
     @Published var isDestinationFetched : Bool = false
+    @Published var isGameEnded : Bool = false
     
     init(context: ModelContext) {
         self.dbContext = context
@@ -37,6 +38,10 @@ class MainViewModel: ObservableObject{
         }
     }
     
+    func endGame() {
+        isGameEnded = true
+    }
+    
     func resetPoints(){
         // Fetch users
         // Clear points and destination
@@ -56,6 +61,8 @@ class MainViewModel: ObservableObject{
             item.isSelected = false
         }
         
+        
+        isGameEnded = false
         try? dbContext.save()
     }
     

@@ -16,6 +16,7 @@ struct MainView: View {
     @StateObject var viewModel : MainViewModel
     @State private var isShowingResetAllDataDialog: Bool = false
     @State private var isShowingResetAppPointsDialog: Bool = false
+    @State private var isShowingEndGameDialog: Bool = false
     init(modelContext: ModelContext) {
         _viewModel = StateObject(wrappedValue: MainViewModel(context: modelContext))
     }
@@ -116,20 +117,6 @@ struct MainView: View {
                             }).alert("\(viewModel.destinationCounts) destinations are added.", isPresented: $viewModel.isDestinationFetched) {}
                             
                             Spacer()
-                            Button(action: {
-                                    isShowingResetAppPointsDialog = true
-                            }, label: {
-                                CustomButton(text: "Reset points",
-                                             systemImage: "arrow.clockwise",
-                                             function: {},
-                                             backColor: .white,
-                                             foreColor: .red)
-                            }).alert("Are you sure?", isPresented: $isShowingResetAppPointsDialog) {
-                                Button("Delete", role:.destructive) {
-                                    viewModel.resetPoints()
-                                    isShowingResetAppPointsDialog = false
-                                }
-                            }
                             
                             Button(action: {isShowingResetAllDataDialog = true}
                                    , label: {
@@ -149,6 +136,61 @@ struct MainView: View {
                 }.tabItem {
                         Label("Settings",systemImage: "gearshape.fill")
                 }.foregroundStyle(.white)
+                
+                
+                GradientStack{
+                    VStack{
+                        Spacer()
+                        VStack {
+                            
+                            if viewModel.isGameEnded {
+                                Button(action: {
+                                    isShowingResetAppPointsDialog = true
+                                }, label: {
+                                    CustomButton(text: "Reset points",
+                                                 systemImage: "arrow.clockwise",
+                                                 function: {},
+                                                 backColor: .white,
+                                                 foreColor: .red)
+                                }).alert("Are you sure?", isPresented: $isShowingResetAppPointsDialog) {
+                                    Button("Delete", role:.destructive) {
+                                        viewModel.resetPoints()
+                                        isShowingResetAppPointsDialog = false
+                                    }
+                                }
+                            } else {
+                                Button(action: {
+                                    isShowingEndGameDialog = true
+                                }, label: {
+                                    CustomButton(text: "End Game",
+                                                 systemImage: "flag.checkered.2.crossed",
+                                                 function: {},
+                                                 backColor: .white,
+                                                 foreColor: .red)
+                                }).alert("Are you sure?", isPresented: $isShowingEndGameDialog) {
+                                    Button("Yes", role:.destructive) {
+                                        viewModel.endGame()
+                                        isShowingEndGameDialog = false
+                                    }
+                                }
+                            }
+                            
+                        }
+                        Spacer()
+                        
+                        VStack{
+                            if viewModel.isGameEnded {
+                                let usersByPoints = users.sorted(by: { u1,u2 in return u1.totalPoints > u2.totalPoints})
+                                ForEach (usersByPoints) { userItem in
+                                    PlayerInformationCard(player: .constant(userItem))
+                                }
+                            }
+                        }.frame(width: UIScreen.main.bounds.width, height: 500, alignment: .center)
+                        Spacer()
+                    }
+                }.tabItem {
+                    Label("End game",systemImage: "flag.checkered")
+                }
                     
             }.foregroundColor(.white)
         }.navigationBarBackButtonHidden(true)
