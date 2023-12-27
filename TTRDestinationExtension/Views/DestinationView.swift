@@ -41,7 +41,12 @@ struct DestinationView : View {
                             DestinationCard(destination: viewModel.threeDestinations[2],isSelected: $viewModel.isThirdSelected) })
                     }
                 }).frame(alignment: .center)
-                
+                Spacer()
+                VStack {
+                    ForEach (viewModel.player.destinationTickets) { dest in
+                        DestinationCompactView(destinations: dest)
+                    }
+                }
                 Spacer()
                 VStack{
                     Spacer()

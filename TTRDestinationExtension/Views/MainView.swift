@@ -43,7 +43,7 @@ struct MainView: View {
                                     NavigationLink(destination: LoginView(player: user)
                                         .navigationBarTitle("", displayMode: .inline)
                                         .navigationBarHidden(true)) {
-                                            CustomButton(text: "\(user.name)",
+                                            CustomButton(text: "\(user.name) - \(user.destinationTickets.count)",
                                                          systemImage: "",
                                                          function: addItem,
                                                          backColor: Color(byName: user.color) ?? .white,
