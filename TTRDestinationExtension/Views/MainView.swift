@@ -159,27 +159,41 @@ struct MainView: View {
                                     }
                                 }
                             } else {
-                                Button(action: {
-                                    isShowingEndGameDialog = true
-                                }, label: {
-                                    CustomButton(text: "End Game",
-                                                 systemImage: "flag.checkered.2.crossed",
-                                                 function: {},
-                                                 backColor: .white,
-                                                 foreColor: .red)
-                                }).alert("Are you sure?", isPresented: $isShowingEndGameDialog) {
-                                    Button("Yes", role:.destructive) {
-                                        viewModel.endGame()
-                                        isShowingEndGameDialog = false
+                                if(users.count > 0)
+                                {
+                                    Button(action: {
+                                        isShowingEndGameDialog = true
+                                    }, label: {
+                                        CustomButton(text: "End Game",
+                                                     systemImage: "flag.checkered.2.crossed",
+                                                     function: {},
+                                                     backColor: .white,
+                                                     foreColor: .red)
+                                    }).alert("Are you sure?", isPresented: $isShowingEndGameDialog) {
+                                        Button("Yes", role:.destructive) {
+                                            viewModel.endGame()
+                                            isShowingEndGameDialog = false
+                                        }
                                     }
+                                } else {
+                                    Label("No game has been started!", systemImage: "")
+                                        .font(.system(size: 22, weight: .bold, design: .default))
+                                        .frame(alignment: .center)
+                                        .foregroundColor(.white)
+                                        .padding(10)
                                 }
                             }
-                            
                         }
                         Spacer()
                         
                         VStack{
                             if viewModel.isGameEnded {
+                                Label("Players are ordered by total points", systemImage: "")
+                                    .font(.system(size: 15, weight: .light, design: .default))
+                                    .frame(alignment: .top)
+                                    .foregroundColor(.white)
+                                    .offset(x:0, y:-5)
+                                
                                 let usersByPoints = users.sorted(by: { u1,u2 in return u1.totalPoints > u2.totalPoints})
                                 ForEach (usersByPoints) { userItem in
                                     PlayerInformationCard(player: .constant(userItem))
