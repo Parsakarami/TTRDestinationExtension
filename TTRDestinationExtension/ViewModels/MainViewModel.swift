@@ -16,6 +16,7 @@ class MainViewModel: ObservableObject{
     @Published var destinationCounts : Int = 0
     @Published var isDestinationFetched : Bool = false
     @Published var isGameEnded : Bool = false
+    @Published var isRoomCreated : Bool = false
     
     init(context: ModelContext) {
         self.dbContext = context
@@ -40,6 +41,14 @@ class MainViewModel: ObservableObject{
     
     func endGame() {
         isGameEnded = true
+    }
+    
+    func createRoom() {
+        isRoomCreated = true
+    }
+    
+    func deleteRoom() {
+        isRoomCreated = false
     }
     
     func resetPoints(){

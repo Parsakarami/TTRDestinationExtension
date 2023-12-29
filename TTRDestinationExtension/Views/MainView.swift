@@ -17,6 +17,7 @@ struct MainView: View {
     @State private var isShowingResetAllDataDialog: Bool = false
     @State private var isShowingResetAppPointsDialog: Bool = false
     @State private var isShowingEndGameDialog: Bool = false
+    @State private var isShowingRemoveTheRoomDialog: Bool = false
     init(modelContext: ModelContext) {
         _viewModel = StateObject(wrappedValue: MainViewModel(context: modelContext))
     }
@@ -204,6 +205,49 @@ struct MainView: View {
                     }
                 }.tabItem {
                     Label("End game",systemImage: "flag.checkered")
+                }
+                
+                GradientStack{
+                    VStack{
+                        Spacer()
+                        Label("Create a room and play together.", systemImage: "")
+                            .font(.system(size: 15, weight: .light, design: .default))
+                            .frame(alignment: .top)
+                            .foregroundColor(.white)
+                            .offset(x:0, y:-5)
+                        if(!viewModel.isRoomCreated) {
+                            Button(action: {
+                                viewModel.createRoom()
+                            }, label: {
+                                CustomButton(text: "Create a room",
+                                             systemImage: "plus",
+                                             function: {},
+                                             backColor: .blue,
+                                             foreColor: .white)
+                            })
+                        } else {
+                            Button(action: {
+                                isShowingRemoveTheRoomDialog = true
+                            }, label: {
+                                CustomButton(text: "Remove the room",
+                                             systemImage: "trash",
+                                             function: {},
+                                             backColor: .red,
+                                             foreColor: .white)
+                            }).alert("Are you sure?", isPresented: $isShowingRemoveTheRoomDialog) {
+                                Button("Delete", role:.destructive) {
+                                    viewModel.deleteRoom()
+                                    isShowingRemoveTheRoomDialog = false
+                                }
+                            }
+                        }
+                        
+                        Spacer()
+                        Spacer()
+                    }
+                }
+                .tabItem {
+                    Label("Crete room",systemImage: "dice.fill")
                 }
                     
             }.foregroundColor(.white)
